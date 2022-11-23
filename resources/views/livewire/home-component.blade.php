@@ -414,14 +414,14 @@
         =======================================-->
 
 
-        <!--=====================================
-                  CART SIDEBAR PART START
-        =======================================-->
+
+           {{-- @if(session()->get('cart') >0 )
+
         <aside class="cart-sidebar">
             <div class="cart-header">
                 <div class="cart-total">
                     <i class="fas fa-shopping-basket"></i>
-                    <span>total item (5)</span>
+                    <span>Total Du Panier </span>
                 </div>
                 <button class="cart-close"><i class="icofont-close"></i></button>
             </div>
@@ -539,8 +539,17 @@
                 </a>
             </div>
         </aside>
-        <!--=====================================
-                    CART SIDEBAR PART END
+        @else
+        <span>Aucun produit au panier</span>
+        @endif
+ --}}
+
+
+
+
+
+
+
         =======================================-->
 
 
@@ -690,11 +699,11 @@
                 <i class="fas fa-list"></i>
                 <span>category</span>
             </button>
-            <button class="cart-btn" title="Cartlist">
+            <a href="{{url('/cart')}}" title="Votre Panier">
                 <i class="fas fa-shopping-basket"></i>
                 <span>cartlist</span>
                 <sup>9+</sup>
-            </button>
+            </a>
             <a href="wishlist.html" title="Wishlist">
                 <i class="fas fa-heart"></i>
                 <span>wishlist</span>
@@ -881,7 +890,7 @@
                     BANNER PART END
         =======================================-->
 
-            
+
         <!--=====================================
                     SUGGEST PART START
         =======================================-->

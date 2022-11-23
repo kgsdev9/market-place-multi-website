@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Livewire\Actioncomponent;
+use App\Http\Livewire\Cartcomponent;
 use App\Http\Livewire\HomeComponent;
 use Illuminate\Support\Facades\Route;
 
@@ -15,5 +17,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', HomeComponent::class);
-Route::get('/cart', [HomeComponent::class, 'cart']);
-Route::get('/product/detail/{id}', HomeComponent::class, 'detail');
+Route::get('/cart', Cartcomponent::class);
+Route::get('/cart/delete/{id}', Actioncomponent::class, 'delete')->name('delete.cart');

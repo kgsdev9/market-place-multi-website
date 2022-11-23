@@ -27,7 +27,6 @@ class ProductComponent extends Component
                    "quantity" => 1,
                    "price" => $product->price,
                    "image" => $product->cover_image,
-                   "quantity" => $product->quantity,
                    "statut"  => $product->statut,
                    "product_id"  =>$product->id,
                ];
