@@ -1,17 +1,4 @@
-
-
-<section class="inner-section single-banner" style="background: url(images/single-banner.jpg) no-repeat center;">
-    <div class="container">
-        <h2>wishlist</h2>
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item"><a href="shop-4column.html">shop grid</a></li>
-            <li class="breadcrumb-item active" aria-current="page">wishlist</li>
-        </ol>
-    </div>
-</section>
-
-<section class="inner-section wishlist-part">
+<section class="inner-section wishlist-part" style="margin-top:50px;">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -37,7 +24,7 @@
             <div class="col-lg-12">
                 <div class="text-center mt-5">
                     <button class="btn btn-outline">
-                        Load more items
+                        Passer  au paiement
                     </button>
                 </div>
             </div>

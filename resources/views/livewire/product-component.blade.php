@@ -17,7 +17,7 @@
                     <div class="product-label">
                         <label class="label-text sale">Populaire</label>
                     </div>
-                     
+
                     <a class="product-image" href="product-video.html">
                         <img src="{{asset('assets/pages/images/product/01.jpg')}}" alt="">
                     </a>
@@ -61,7 +61,7 @@
                 <div class="section-btn-25">
                     <a href="shop-4column.html" class="btn btn-outline">
                         <i class="fas fa-eye"></i>
-                        <span>show more</span>
+                        <span>Consulter Cette Rubrique</span>
                     </a>
                 </div>
             </div>

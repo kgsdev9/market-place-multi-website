@@ -18,4 +18,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeComponent::class);
 Route::get('/cart', Cartcomponent::class);
-Route::get('/cart/delete/{id}', Actioncomponent::class, 'delete')->name('delete.cart');
+

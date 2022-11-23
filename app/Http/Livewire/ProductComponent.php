@@ -10,12 +10,6 @@ use Illuminate\Console\View\Components\Alert;
 
 class ProductComponent extends Component
 {
-
-
-
-
-
-
     public function addtocart($id) {
         $product = Product::findOrFail($id);
            $cart = session()->get('cart', []);
