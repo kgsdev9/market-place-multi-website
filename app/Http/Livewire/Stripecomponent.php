@@ -4,13 +4,11 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class Cartcomponent extends Component
+class Stripecomponent extends Component
 {
-
-
     public function render()
     {
-        return view('livewire.cartcomponent')
+        return view('livewire.stripecomponent')
         ->extends('layout.app')
         ->section('content');
     }

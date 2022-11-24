@@ -25,7 +25,7 @@ class CreateAnnoncesTable extends Migration
             $table->string('start_date') ;
             $table->text('description');
             $table->string('image')->nullable();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });

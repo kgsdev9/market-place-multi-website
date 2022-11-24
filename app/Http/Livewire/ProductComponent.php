@@ -2,11 +2,11 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Coeur;
 use App\Models\Product;
 use Livewire\Component;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Console\View\Components\Alert;
+
+
+
 
 class ProductComponent extends Component
 {
@@ -27,10 +27,13 @@ class ProductComponent extends Component
            }
            session()->put('cart', $cart);
            $this->emit('updateCartCount');
+
            return Redirect()->back();
        }
+
     public function render()
     {
+
         $this->product = Product::get();
         return view('livewire.product-component', [
             'product'  =>$this->product

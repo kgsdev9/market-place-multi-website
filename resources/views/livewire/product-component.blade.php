@@ -1,6 +1,5 @@
 
 <section class="section recent-part">
-
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -17,15 +16,10 @@
                     <div class="product-label">
                         <label class="label-text sale">Populaire</label>
                     </div>
-
-                    <a class="product-image" href="product-video.html">
+                    <a class="product-image" href="{{route('product.detail', $product->id)}}">
                         <img src="{{asset('assets/pages/images/product/01.jpg')}}" alt="">
                     </a>
-                    <div class="product-widget">
-                        <a title="Product Compare" href="compare.html" class="fas fa-random"></a>
-                        <a title="Product Video" href="https://youtu.be/9xzcVxSBbG8" class="venobox fas fa-play" data-autoplay="true" data-vbtype="video"></a>
-                        <a title="Product View" href="#" class="fas fa-eye" data-bs-toggle="modal" data-bs-target="#product-view"></a>
-                    </div>
+
                 </div>
                 <div class="product-content">
                     <div class="product-rating">
@@ -40,8 +34,7 @@
                         <a href="product-video.html">{{$product->name}}</a>
                     </h6>
                     <h6 class="product-price">
-                        <del>$34</del>
-                        <span>$28<small>/piece</small></span>
+                        <span>{{$product->price}} €</span>
                     </h6>
 
                 <button  wire:click="addtocart({{$product->id}})" class="product-add" title="Add to Cart">

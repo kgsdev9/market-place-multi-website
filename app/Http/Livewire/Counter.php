@@ -7,7 +7,12 @@ use Livewire\Component;
 class Counter extends Component
 {
 
-    protected $listeners = ['updateCartCount' => 'getCartCounter'];
+    // public $total  = 0 ;
+    protected $listeners = [
+        'updateCartCount' => 'getCartCounter' ,
+    ];
+
+
 
     public function render()
     {
@@ -18,4 +23,16 @@ class Counter extends Component
     public function getCartCounter() {
         count((array) session('cart')) ;
     }
+
+    // public function   count_price()  {
+    //         foreach(session('cart') as $id => $details)  {
+    //           $this->total += $details['price'] * $details['quantity'] ;
+    //           return  $this->total ;
+    //         }
+
+
+
+
+    // }
+
 }

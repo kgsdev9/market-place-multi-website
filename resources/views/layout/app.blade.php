@@ -2,32 +2,25 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <!--=====================================
-                    META TAG PART START
-        =======================================-->
+
         <!-- REQUIRE META -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- AUTHOR META -->
-        <meta name="author" content="mironcoder">
-        <meta name="email" content="mironcoder@gmail.com">
-        <meta name="profile" content="https://themeforest.net/user/mironcoder">
+        <meta name="author" content="kgsdev/datchsimon">
+        <meta name="email" content="khmsgroup225@gmail.com">
+        <meta name="profile" content="KHMSGROUP">
 
         <!-- TEMPLATE META -->
-        <meta name="name" content="Greeny">
-        <meta name="title" content="Greeny - eCommerce HTML Template">
+        <meta name="name" content="VTP">
+        <meta name="title" content="VTP GROUP">
         <meta name="keywords" content="organic, food, shop, ecommerce, store, html, bootstrap, template, agriculture, vegetables, webshop, farm, grocery, natural, online store">
-        <!--=====================================
-                    META-TAG PART END
-        =======================================-->
+
 
         <!-- WEBPAGE TITLE -->
         <title>VTP MARKET - Place</title>
 
-        <!--=====================================
-                    CSS LINK PART START
-        =======================================-->
         <!-- FAVICON -->
         <link rel="icon" href="{{asset('assets/pages/images/favicon.png')}}">
 
@@ -47,118 +40,91 @@
         <link rel="stylesheet" href="{{asset('assets/pages/css/main.css')}}">
         <link rel="stylesheet" href="{{asset('assets/pages/css/index.css')}}">
 
-        <!--=====================================
-                    CSS LINK PART END
-        =======================================-->
         @livewireStyles
     </head>
-    <body>
+    <body style="background-color: #fff;">
         <div class="backdrop"></div>
         <a class="backtop fas fa-arrow-up" href="#"></a>
-
-        <!--=====================================
-                    HEADER TOP PART START
-        =======================================-->
         <div class="header-top">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-lg-5">
                         <div class="header-top-welcome">
-                            <p>Welcome to Ecomart in Your Dream Online Store!</p>
+                            <p>Bienvenue Sur VTP MARKET!</p>
                         </div>
                     </div>
                     <div class="col-md-5 col-lg-3">
                         <div class="header-top-select">
                             <div class="header-select">
                                 <i class="icofont-world"></i>
-                                <select class="select">
-                                    <option value="english" selected>english</option>
-                                    <option value="bangali">bangali</option>
-                                    <option value="arabic">arabic</option>
-                                </select>
+                                    <p class="text-white">Vendez vos articles sur VTP</p>
                             </div>
-                            <div class="header-select">
-                                <i class="icofont-money"></i>
-                                <select class="select">
-                                    <option value="english" selected>doller</option>
-                                    <option value="bangali">pound</option>
-                                    <option value="arabic">taka</option>
-                                </select>
-                            </div>
+
                         </div>
                     </div>
                     <div class="col-md-7 col-lg-4">
                         <ul class="header-top-list">
-                            <li><a href="offer.html">offers</a></li>
-                            <li><a href="faq.html">need help</a></li>
-                            <li><a href="contact.html">contact us</a></li>
+                            <li><a href="offer.html">Soulagez</a></li>
+                            <li><a href="faq.html">Vos Voyages</a></li>
+                            <li><a href="contact.html">Sur VTP</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-        <!--=====================================
-                    HEADER TOP PART END
-        =======================================-->
 
-
-
-        <!--=====================================
-                    HEADER PART START
-        =======================================-->
         <header class="header-part">
             <div class="container">
                 <div class="header-content">
                     <div class="header-media-group">
-                        <button class="header-user"><img src="images/user.png" alt="user"></button>
-                        <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+                        <button class="header-user"><img src="{{asset('assets/pages/images/user.png')}}" alt="user"></button>
+                        <a href="{{url('/')}}"><img src="{{asset('assets/pages/images/logo.png')}}" alt="logo"></a>
+
                         <button class="header-src"><i class="fas fa-search"></i></button>
                     </div>
 
                     <a href="index.html" class="header-logo">
-                        <img src="images/logo.png" alt="logo">
+                        <img src="{{asset('assets/pages/images/logo.png')}}" alt="logo">
                     </a>
-                    <a href="login.html" class="header-widget" title="My Account">
-                        <img src="images/user.png" alt="user">
-                        <span>join</span>
+                    <a href="{{route('login')}}" class="header-widget" title="My Account">
+                        <img src="{{asset('assets/pages/images/user.png')}}" alt="user">
+
+                        <span>Mon compte</span>
                     </a>
 
                     <form class="header-form">
-                        <input type="text" placeholder="Search anything...">
+                        <input type="text" placeholder="Rechercher un produit......">
                         <button><i class="fas fa-search"></i></button>
                     </form>
 
                     <div class="header-widget-group">
-                        <a href="compare.html" class="header-widget" title="Compare List">
+                        <a href="" class="header-widget" title="Compare List">
                             <i class="fas fa-random"></i>
                             <sup>0</sup>
                         </a>
-                        <a href="wishlist.html" class="header-widget" title="Wishlist">
+                        <a href="{{route('intent.product')}}" class="header-widget" title="Liste d'envie">
                             <i class="fas fa-heart"></i>
-                            <sup>0</sup>
+
                         </a>
                         @livewire('counter')
                     </div>
                 </div>
             </div>
         </header>
-        <!--=====================================
-                    HEADER PART END
-        =======================================-->
+
 
 
                 @yield('content')
 
-        <!--=====================================
-                     FOOTER PART START
-        =======================================-->
+
         <footer class="footer-part">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6 col-xl-3">
                         <div class="footer-widget">
                             <a class="footer-logo" href="#">
-                                <img src="images/logo.png" alt="logo">
+
+                                <img src="{{asset('assets/pages/images/logo.png')}}" alt="">
                             </a>
                             <p class="footer-desc">Adipisci asperiores ipsum ipsa repellat consequatur repudiandae quisquam assumenda dolor perspiciatis sit ipsum dolor amet.</p>
                             <ul class="footer-social">
@@ -172,13 +138,13 @@
                     </div>
                     <div class="col-sm-6 col-xl-3">
                         <div class="footer-widget contact">
-                            <h3 class="footer-title">contact us</h3>
+                            <h3 class="footer-title">Contact</h3>
                             <ul class="footer-contact">
                                 <li>
                                     <i class="icofont-ui-email"></i>
                                     <p>
-                                        <span>support@greeny.com</span>
-                                        <span>carrer@greeny.com</span>
+                                        <span>vtpmarket2022@gmail.com</span>
+                                        <span>vtpsupport2022@gmail.com</span>
                                     </p>
                                 </li>
                                 <li>
@@ -197,32 +163,32 @@
                     </div>
                     <div class="col-sm-6 col-xl-3">
                         <div class="footer-widget">
-                            <h3 class="footer-title">quick Links</h3>
+                            <h3 class="footer-title">Liens Utils</h3>
                             <div class="footer-links">
                                 <ul>
-                                    <li><a href="#">My Account</a></li>
-                                    <li><a href="#">Order History</a></li>
-                                    <li><a href="#">Order Tracking</a></li>
-                                    <li><a href="#">Best Seller</a></li>
-                                    <li><a href="#">New Arrivals</a></li>
+                                    <li><a href="#">Connexion</a></li>
+                                    <li><a href="#">inscription</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                    <li><a href="#">Nouveau arrivage</a></li>
                                 </ul>
                                 <ul>
-                                    <li><a href="#">Location</a></li>
-                                    <li><a href="#">Affiliates</a></li>
-                                    <li><a href="#">Contact</a></li>
-                                    <li><a href="#">Carrer</a></li>
-                                    <li><a href="#">Faq</a></li>
+                                    <li><a href="#">Nos Produits</a></li>
+                                    <li><a href="{{route('category.index')}}">Nos Categories</a></li>
+                                    <li><a href="#"> Nos Vendeurs</a></li>
+                                    <li><a href="#">Nos Transporteurs</a></li>
+
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 col-xl-3">
                         <div class="footer-widget">
-                            <h3 class="footer-title">Download App</h3>
-                            <p class="footer-desc">Lorem ipsum dolor sit amet tenetur dignissimos ipsum eligendi autem obcaecati minus ducimus totam reprehenderit exercitationem!</p>
+                            <h3 class="footer-title">Application Mobile</h3>
+                            <p class="footer-desc">Notre Application Mobile est bientot disponible veuillez patientez chers clienrs</p>
                             <div class="footer-app">
-                                <a href="#"><img src="images/google-store.png" alt="google"></a>
-                                <a href="#"><img src="images/app-store.png" alt="app"></a>
+                                <a href="#"><img src="{{asset('assets/pages/images/google-store.png')}}" alt="google"></a>
+
+                                <a href="#"><img src="{{asset('assets/pages/images/app-store.png')}}" alt="app"></a>
                             </div>
                         </div>
                     </div>
@@ -230,12 +196,13 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="footer-bottom">
-                            <p class="footer-copytext">&copy;  All Copyrights Reserved by <a target="_blank" href="https://themeforest.net/user/mironcoder">Mironcoder</a></p>
+                            <p class="footer-copytext">&copy;  Tous Droits réservés à VTP GROUP<a target="" href=""></a></p>
                             <div class="footer-card">
-                                <a href="#"><img src="images/payment/jpg/01.jpg" alt="payment"></a>
-                                <a href="#"><img src="images/payment/jpg/02.jpg" alt="payment"></a>
-                                <a href="#"><img src="images/payment/jpg/03.jpg" alt="payment"></a>
-                                <a href="#"><img src="images/payment/jpg/04.jpg" alt="payment"></a>
+                                <a href="#"><img src="{{asset('assets/pages/images/payment/jpg/01.jpg')}}" alt="payment"></a>
+
+                                <a href="#"><img src="{{asset('assets/pages/images/payment/jpg/02.jpg')}}" alt="payment"></a>
+                                <a href="#"><img src="{{asset('assets/pages/images/payment/jpg/03.jpg')}}" alt="payment"></a>
+                                <a href="#"><img src="{{asset('assets/pages/images/payment/jpg/04.jpg')}}" alt="payment"></a>
                             </div>
                         </div>
                     </div>
@@ -246,6 +213,8 @@
                       FOOTER PART END
         =======================================-->
         @livewireScripts
+        <script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script> 
+        <x-livewire-alert::scripts />
         <script src="{{asset('assets/pages/vendor/bootstrap/jquery-1.12.4.min.js')}}"></script>
         <script src="{{asset('assets/pages/vendor/bootstrap/popper.min.js')}}"></script>
         <script src="{{asset('assets/pages/vendor/bootstrap/bootstrap.min.js')}}"></script>
@@ -261,7 +230,7 @@
         <script src="{{asset('assets/pages/js/venobox.js')}}"></script>
         <script src="{{asset('assets/pages/js/slick.js')}}"></script>
         <script src="{{asset('assets/pages/js/main.js')}}"></script>
-        =======================================-->
+
     </body>
 </html>
 

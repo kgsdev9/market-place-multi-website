@@ -24,7 +24,7 @@
             <div class="col-lg-12">
                 <div class="text-center mt-5">
                     <button class="btn btn-outline">
-                        Passer  au paiement
+                       <a href="{{route('payement.method')}}" class="text-success">Passer au paiement</a>
                     </button>
                 </div>
             </div>

@@ -9,6 +9,9 @@ use PhpParser\Node\Expr\Cast\Object_;
 class Actioncomponent extends Component
 {
 
+
+    // protected $listeners = [ 'updateCartCount' =>  'count_price'];
+
     public $removecart  ;
 
     public function increment($id) {

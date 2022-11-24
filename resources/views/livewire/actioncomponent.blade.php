@@ -1,5 +1,5 @@
 <tbody>
-    @foreach( session('cart') as $id => $details)
+    @foreach( (array)session('cart') as $id => $details)
     <tr>
         @php $total = 0 @endphp
         @php $total += $details['price'] * $details['quantity'] @endphp
