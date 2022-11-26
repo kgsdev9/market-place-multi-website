@@ -17,8 +17,6 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->nullable();
-            $table->string('country');
-            $table->string('city');
             $table->string('statut');
             $table->text('description');
             $table->float('price');
@@ -26,13 +24,17 @@ class CreateProductsTable extends Migration
             $table->tinyInteger('popular')->nullable();
             $table->tinyInteger('tendance')->nullable();
             $table->string('referencies')->nullable();
-            $table->unsignedInteger('quantity');
+            $table->integer('quantity');
             $table->float('high_price')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
             $table->unsignedBigInteger('seller_id')->nullable();
+            $table->unsignedBigInteger('city_id')->nullable();
+            $table->unsignedBigInteger('country_id')->nullable();
+            $table->foreign('city_id')->on('cities')->references('id')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('country_id')->on('countries')->references('id')->onUpdate('cascade') ->onDelete('cascade');
             $table->timestamps();
             $table->foreign('category_id')->on('categories')->references('id') ->onUpdate('cascade')
-            ->onDelete('cascade');;
+            ->onDelete('cascade');
             $table->foreign('seller_id')->on('sellers')->references('id') ->onUpdate('cascade')
             ->onDelete('cascade');
         });

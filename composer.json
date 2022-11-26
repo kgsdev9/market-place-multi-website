@@ -11,13 +11,13 @@
         "hardevine/shoppingcart": "^3.1",
         "jantinnerezo/livewire-alert": "^2.2",
         "jorenvanhocht/laravel-share": "^4.2",
-        "laravel/cashier": "^14.3",
         "laravel/fortify": "^1.13",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.10",
-        "realrashid/sweet-alert": "^5.1"
+        "realrashid/sweet-alert": "^5.1",
+        "stripe/stripe-php": "^10.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

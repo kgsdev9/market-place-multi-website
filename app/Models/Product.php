@@ -11,8 +11,8 @@ class Product extends Model
     protected $fillable =[
         'name',
         'slug',
-        'country',
-        'city',
+        'country_id',
+        'city_id',
         'statut',
         'description',
         'price',
@@ -59,5 +59,16 @@ public function wishlists(){
  public function coupons(){
     return $this->hasMany(Coupon::class);
  }
+
+public function  city() {
+    return $this->belongsTo(City::class, 'city_id');
+}
+
+public function  country() {
+    return $this->belongsTo(City::class, 'country_id');
+}
+
+
+
 
 }

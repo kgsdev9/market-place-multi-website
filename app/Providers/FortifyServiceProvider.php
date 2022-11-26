@@ -45,12 +45,12 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::registerView(function(){
             $roles = Role::where('name', '!=' , 'admin')->get();
 
-                return view('pages.auth.register', compact('roles'));
+                return view('auth.register', compact('roles'));
 
         });
 
         Fortify::requestPasswordResetLinkView(function () {
-            return view('pages.auth.reset-password');
+            return view('auth.reset-password');
         });
 
 
@@ -60,8 +60,7 @@ class FortifyServiceProvider extends ServiceProvider
 
 
  Fortify::confirmPasswordView(function()  {
-
-    return view('pages.auth.confirm-password') ;
+    return view('auth.confirm-password');
 
  }); {
 
@@ -71,6 +70,7 @@ class FortifyServiceProvider extends ServiceProvider
 
  Fortify::twoFactorChallengeView(function () {
     return view('pages.auth.two-factor-challenge');
+    
 });
 
 

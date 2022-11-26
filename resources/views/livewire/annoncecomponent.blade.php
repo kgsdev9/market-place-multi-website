@@ -12,7 +12,7 @@
     <section class="inner-section blog-grid">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-8">
+                <div class="col-lg-9">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="top-filter">
@@ -42,7 +42,7 @@
                     </div>
                     <div class="row">
                             @forelse ($annonce as $value )
-                            <div class="col-md-6 col-lg-6">
+                            <div class="col-md-4 col-lg-4">
                                 <div class="blog-card">
                                     <div class="blog-media">
                                         <a class="blog-img" href="{{route('annnnonced.show', $value->id)}}">
@@ -94,7 +94,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-7 col-lg-4">
+                <div class="col-md-7 col-lg-3">
 
                     <div class="blog-widget">
                         <h3 class="blog-widget-title">Départ Imminent</h3>

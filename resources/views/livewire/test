@@ -1,303 +1,126 @@
-  <section class="section blog-part">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="section-heading">
-                            <h2>Read our articles</h2>
+<section class="inner-section shop-part">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <form  wire:submit.prevent="search">
+
+                    <div class="top-filter">
+                        <div class="filter-show">
+                            <label class="filter-label">Pays :</label>
+                            <select class="form-select pca" wire:model="country">
+                                @foreach ( $country as $value )
+                                    <option value="">{{$value->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="filter-short">
+                            <label >nom produit :</label>
+                                <select name="" id="" class="form-control">
+                                    @foreach ( $city as $val)
+                                    <option value="">{{$val->name}}</option>
+                                @endforeach
+                                </select>
+
+                        </div>
+
+                        <div class="filter-short">
+                            <label class="filter-label">prix :</label>
+                           <input type="text" placeholder="prix produit " wire:model="price">
+                        </div>
+
+
+
+
+                        <div class="filter-action">
+                            <a href="shop-3column.html" title="Three Column"><i class="fas fa-th"></i></a>
+                            <a href="shop-2column.html" title="Two Column"><i class="fas fa-th-large"></i></a>
+                            <a href="shop-1column.html" title="One Column"><i class="fas fa-th-list"></i></a>
+                        </div>
+
+
+                        <div class="filter-action">
+
+                            <input type="submit" value=" rechercher" >
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="blog-slider slider-arrow slick-initialized slick-slider">
-                        <div class="slick-list draggable">
-                            <div class="slick-track" style="opacity: 1; width: 3321px; transform: translate3d(-1107px, 0px, 0px);">
-                                <div class="blog-card slick-slide slick-cloned" tabindex="-1" style="width: 349px;" data-slick-index="-1" aria-hidden="true">
-                                <div class="blog-media">
-                                    <a class="blog-img" href="#" tabindex="-1">
-                                        <img src="images/blog/04.jpg" alt="blog">
-                                    </a>
-                                </div>
 
-                                <div class="blog-content">
-                                    <ul class="blog-meta">
-                                        <li>
-                                            <i class="fas fa-user"></i>
-                                            <span>admin</span>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-calendar-alt"></i>
-                                            <span>february 02, 2021</span>
-                                        </li>
-                                    </ul>
-                                    <h4 class="blog-title">
-                                        <a href="blog-details.html" tabindex="-1">Voluptate blanditiis provident Lorem ipsum dolor sit amet</a>
-                                    </h4>
-                                    <p class="blog-desc">
-                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias autem recusandae deleniti nam dignissimos sequi ...
-                                    </p>
-                                    <a class="blog-btn" href="#" tabindex="-1">
-                                        <span>read more</span>
-                                        <i class="icofont-arrow-right"></i>
-                                    </a>
-                                </div>
+                </form>
+
+            </div>
+        </div>
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-5">
+                @foreach ($randomproduct as $random )
+                <div class="col">
+                    <div class="product-card">
+                        <div class="product-media">
+                            <div class="product-label">
+                                <label class="label-text new">Nouveau</label>
                             </div>
-
-                            <div class="blog-card slick-slide" tabindex="-1" style="width: 349px;" data-slick-index="0" aria-hidden="true">
-                                <div class="blog-media">
-                                    <a class="blog-img" href="#" tabindex="-1">
-                                        <img src="images/blog/01.jpg" alt="blog">
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <ul class="blog-meta">
-                                        <li>
-                                            <i class="fas fa-user"></i>
-                                            <span>admin</span>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-calendar-alt"></i>
-                                            <span>february 02, 2021</span>
-                                        </li>
-                                    </ul>
-                                    <h4 class="blog-title">
-                                        <a href="blog-details.html" tabindex="-1">Voluptate blanditiis provident Lorem ipsum dolor sit amet</a>
-                                    </h4>
-                                    <p class="blog-desc">
-                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias autem recusandae deleniti nam dignissimos sequi ...
-                                    </p>
-                                    <a class="blog-btn" href="#" tabindex="-1">
-                                        <span>read more</span>
-                                        <i class="icofont-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="blog-card slick-slide" tabindex="-1" style="width: 349px;" data-slick-index="1" aria-hidden="true">
-                                <div class="blog-media">
-                                    <a class="blog-img" href="#" tabindex="-1">
-                                        <img src="images/blog/02.jpg" alt="blog">
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <ul class="blog-meta">
-                                        <li>
-                                            <i class="fas fa-user"></i>
-                                            <span>admin</span>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-calendar-alt"></i>
-                                            <span>february 02, 2021</span>
-                                        </li>
-                                    </ul>
-                                    <h4 class="blog-title">
-                                        <a href="blog-details.html" tabindex="-1">Voluptate blanditiis provident Lorem ipsum dolor sit amet</a>
-                                    </h4>
-                                    <p class="blog-desc">
-                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias autem recusandae deleniti nam dignissimos sequi ...
-                                    </p>
-                                    <a class="blog-btn" href="#" tabindex="-1">
-                                        <span>read more</span>
-                                        <i class="icofont-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="blog-card slick-slide slick-current slick-active" tabindex="0" style="width: 349px;" data-slick-index="2" aria-hidden="false">
-                                <div class="blog-media">
-                                    <a class="blog-img" href="#" tabindex="0">
-                                        <img src="images/blog/03.jpg" alt="blog">
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <ul class="blog-meta">
-                                        <li>
-                                            <i class="fas fa-user"></i>
-                                            <span>admin</span>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-calendar-alt"></i>
-                                            <span>february 02, 2021</span>
-                                        </li>
-                                    </ul>
-                                    <h4 class="blog-title">
-                                        <a href="blog-details.html" tabindex="0">Voluptate blanditiis provident Lorem ipsum dolor sit amet</a>
-                                    </h4>
-                                    <p class="blog-desc">
-                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias autem recusandae deleniti nam dignissimos sequi ...
-                                    </p>
-                                    <a class="blog-btn" href="#" tabindex="0">
-                                        <span>read more</span>
-                                        <i class="icofont-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="blog-card slick-slide" tabindex="-1" style="width: 349px;" data-slick-index="3" aria-hidden="true">
-                                <div class="blog-media">
-                                    <a class="blog-img" href="#" tabindex="-1">
-                                        <img src="images/blog/04.jpg" alt="blog">
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <ul class="blog-meta">
-                                        <li>
-                                            <i class="fas fa-user"></i>
-                                            <span>admin</span>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-calendar-alt"></i>
-                                            <span>february 02, 2021</span>
-                                        </li>
-                                    </ul>
-                                    <h4 class="blog-title">
-                                        <a href="blog-details.html" tabindex="-1">Voluptate blanditiis provident Lorem ipsum dolor sit amet</a>
-                                    </h4>
-                                    <p class="blog-desc">
-                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias autem recusandae deleniti nam dignissimos sequi ...
-                                    </p>
-                                    <a class="blog-btn" href="#" tabindex="-1">
-                                        <span>read more</span>
-                                        <i class="icofont-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="blog-card slick-slide slick-cloned" tabindex="-1" style="width: 349px;" data-slick-index="4" aria-hidden="true">
-                                <div class="blog-media">
-                                    <a class="blog-img" href="#" tabindex="-1">
-                                        <img src="images/blog/01.jpg" alt="blog">
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <ul class="blog-meta">
-                                        <li>
-                                            <i class="fas fa-user"></i>
-                                            <span>admin</span>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-calendar-alt"></i>
-                                            <span>february 02, 2021</span>
-                                        </li>
-                                    </ul>
-                                    <h4 class="blog-title">
-                                        <a href="blog-details.html" tabindex="-1">Voluptate blanditiis provident Lorem ipsum dolor sit amet</a>
-                                    </h4>
-                                    <p class="blog-desc">
-                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias autem recusandae deleniti nam dignissimos sequi ...
-                                    </p>
-                                    <a class="blog-btn" href="#" tabindex="-1">
-                                        <span>read more</span>
-                                        <i class="icofont-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="blog-card slick-slide slick-cloned" tabindex="-1" style="width: 349px;" data-slick-index="5" aria-hidden="true">
-                                <div class="blog-media">
-                                    <a class="blog-img" href="#" tabindex="-1">
-                                        <img src="images/blog/02.jpg" alt="blog">
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <ul class="blog-meta">
-                                        <li>
-                                            <i class="fas fa-user"></i>
-                                            <span>admin</span>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-calendar-alt"></i>
-                                            <span>february 02, 2021</span>
-                                        </li>
-                                    </ul>
-                                    <h4 class="blog-title">
-                                        <a href="blog-details.html" tabindex="-1">Voluptate blanditiis provident Lorem ipsum dolor sit amet</a>
-                                    </h4>
-                                    <p class="blog-desc">
-                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias autem recusandae deleniti nam dignissimos sequi ...
-                                    </p>
-                                    <a class="blog-btn" href="#" tabindex="-1">
-                                        <span>read more</span>
-                                        <i class="icofont-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="blog-card slick-slide slick-cloned" tabindex="-1" style="width: 349px;" data-slick-index="6" aria-hidden="true">
-                                <div class="blog-media">
-                                    <a class="blog-img" href="#" tabindex="-1">
-                                        <img src="images/blog/03.jpg" alt="blog">
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <ul class="blog-meta">
-                                        <li>
-                                            <i class="fas fa-user"></i>
-                                            <span>admin</span>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-calendar-alt"></i>
-                                            <span>february 02, 2021</span>
-                                        </li>
-                                    </ul>
-                                    <h4 class="blog-title">
-                                        <a href="blog-details.html" tabindex="-1">Voluptate blanditiis provident Lorem ipsum dolor sit amet</a>
-                                    </h4>
-                                    <p class="blog-desc">
-                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias autem recusandae deleniti nam dignissimos sequi ...
-                                    </p>
-                                    <a class="blog-btn" href="#" tabindex="-1">
-                                        <span>read more</span>
-                                        <i class="icofont-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="blog-card slick-slide slick-cloned" tabindex="-1" style="width: 349px;" data-slick-index="7" aria-hidden="true">
-                                <div class="blog-media">
-                                    <a class="blog-img" href="#" tabindex="-1">
-                                        <img src="images/blog/04.jpg" alt="blog">
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <ul class="blog-meta">
-                                        <li>
-                                            <i class="fas fa-user"></i>
-                                            <span>admin</span>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-calendar-alt"></i>
-                                            <span>february 02, 2021</span>
-                                        </li>
-                                    </ul>
-                                    <h4 class="blog-title">
-                                        <a href="blog-details.html" tabindex="-1">Voluptate blanditiis provident Lorem ipsum dolor sit amet</a>
-                                    </h4>
-                                    <p class="blog-desc">
-                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias autem recusandae deleniti nam dignissimos sequi ...
-                                    </p>
-                                    <a class="blog-btn" href="#" tabindex="-1">
-                                        <span>read more</span>
-                                        <i class="icofont-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-
-                            
-                        </div>
-                    </div>
-                </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-btn-25">
-                            <a href="blog-grid.html" class="btn btn-outline">
-                                <i class="fas fa-eye"></i>
-                                <span>view all blog</span>
+                            <button class="product-wish wish">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <a class="product-image" href="product-video.html">
+                                <img src="{{asset('assets/pages/images/product/01.jpg')}}" alt="product">
                             </a>
+
+                        </div>
+                        <div class="product-content">
+                            <div class="product-rating">
+                                <i class="active icofont-star"></i>
+                                <i class="active icofont-star"></i>
+                                <i class="active icofont-star"></i>
+                                <i class="active icofont-star"></i>
+                                <i class="icofont-star"></i>
+                                <a href="product-video.html">(3)</a>
+                            </div>
+                            <h6 class="product-name">
+                                <a href="product-video.html">{{$random->name}}</a>
+                            </h6>
+                            <h6 class="product-price">
+
+                                <span>{{$random->price}}  €</span>
+                            </h6>
+                            <button  wire:click="add({{$random->id}})"  class="product-add" title="Add to Cart">
+                                <i class="fas fa-shopping-basket"></i>
+                                <span>Ajouter au panier</span>
+                            </button>
+
                         </div>
                     </div>
+                </div>
+                @endforeach
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="bottom-paginate">
+                    <ul class="pagination">
+                        {{$randomproduct->links()}}
+                    </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>

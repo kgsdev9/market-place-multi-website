@@ -20,13 +20,15 @@ class ProductFactory extends Factory
             'name' => $this->faker->name(),
             'slug' =>$this->faker->name(),
             'cover_image' => $this->faker->imageUrl(),
-            'country' =>$this->faker->country(),
-            'city' =>$this->faker->city(),
-            'statut' =>$this->faker->name,
+            'statut' =>array_rand(['disponible', 'stock vide']),
+            'country_id' => rand(1, 30),
+            'city_id' => rand(1, 30),
             'description' =>$this->faker->paragraph(),
-            'price' =>$this->faker->numberBetween(10, 30),
+            'price' =>$this->faker->numberBetween(100, 200),
             'cover_image' =>$this->faker->imageUrl(),
             'quantity' =>$this->faker->numberBetween(10, 30),
+            'category_id'=> rand(1, 6),
+            'seller_id'=> rand(1, 6),
             'created_at' => now()
         ];
     }

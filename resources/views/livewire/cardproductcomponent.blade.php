@@ -2,42 +2,15 @@
 <div>
     <section class="inner-section single-banner" style="background: url(images/single-banner.jpg) no-repeat center;">
         <div class="container">
-            <h2>Shop 5 Column</h2>
+            <h2>{{$productcategory->name}}</h2>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">shop-5column</li>
+                <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{$productcategory->name}}</li>
             </ol>
         </div>
     </section>
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="top-filter">
-                        <div class="filter-show">
-                            <label class="filter-label">Show :</label>
-                            <select class="form-select filter-select">
-                                <option value="1">12</option>
-                                <option value="2">24</option>
-                                <option value="3">36</option>
-                            </select>
-                        </div>
-                        <div class="filter-short">
-                            <label class="filter-label">Short by :</label>
-                            <select class="form-select filter-select">
-                                <option selected="">default</option>
-                                <option value="3">trending</option>
-                                <option value="1">featured</option>
-                                <option value="2">recommend</option>
-                            </select>
-                        </div>
-                        <div class="filter-action">
-                            <a href="shop-3column.html" title="Three Column"><i class="fas fa-th"></i></a>
-                            <a href="shop-2column.html" title="Two Column"><i class="fas fa-th-large"></i></a>
-                            <a href="shop-1column.html" title="One Column"><i class="fas fa-th-list"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
                 <div>
                     <div class="row row-cols-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-5">
                         @foreach ($product as $ressources )
@@ -45,7 +18,7 @@
                             <div class="product-card">
                                 <div class="product-media">
                                     <div class="product-label">
-                                        <label class="label-text new">Nouveau</label>
+                                        <label class="label-text new">{{$ressources->category->name}}</label>
                                     </div>
                                     <button  wire:click="Heart({{$ressources->id}})"  class="product-wish wish">
                                         <i class="fas fa-heart"></i>
