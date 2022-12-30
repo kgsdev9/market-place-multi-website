@@ -1,4 +1,4 @@
-@extends('pages.layout.master_pages')
+@extends('layout.app')
 
 @section('main')
 <br>

@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="author" content="Softnio">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="A powerful and conceptual apps base dashboard template that especially build for developers and programmers.">
+    <meta name="description" content="VENDEZ,VOYAGEZ,ACHETEZ SUR VTP ">
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="./images/favicon.png">
     <!-- Page Title  -->
@@ -29,9 +29,9 @@
                         <a href="#" class="nk-nav-compact nk-quick-nav-icon d-none d-xl-inline-flex" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
                     </div>
                     <div class="nk-sidebar-brand">
-                        <a href="html/index.html" class="logo-link nk-sidebar-logo">
-                            <img class="logo-light logo-img" src="./images/logo.png" srcset="./images/logo2x.png 2x" alt="logo">
-                            <img class="logo-dark logo-img" src="./images/logo-dark.png" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
+                        <a href="{{route('dashboard')}}" class="logo-link nk-sidebar-logo">
+                            <img class="logo-light logo-img" src="{{asset('assets/pages/images/logo.png')}}" srcset="{{asset('assets/pages/images/logo.png')}}" alt="test">
+                            <img class="logo-dark logo-img" src="{{asset('assets/pages/images/logo.png')}}" srcset="{{asset('assets/pages/images/logo.png')}}" alt="logos">
                         </a>
                     </div>
                 </div>
@@ -50,11 +50,12 @@
         </div>
         <!-- main -->
     </div>
-  
-    <!-- JavaScript -->
+
+    @include('sweetalert::alert')
     <script src="{{asset('ressources/js/bundle.js')}}"></script>
     <script src="{{asset('ressources/js/scripts.js')}}"></script>
     <script src="{{asset('ressources/js/charts/gd-default.js')}}"></script>
+
 </body>
 
 </html>

@@ -2,175 +2,166 @@
 
 @section('main')
 
-<div id="main-content">
-    <div class="container-fluid">
+<div class="nk-wrap "  style="margin-top:50px;">
+    <!-- main header @s -->
+
+    <!-- main header @e -->
+    <!-- content @s -->
+    <div class="nk-content">
+        <div class="container-fluid">
+            <div class="nk-content-inner">
+                <div class="nk-content-body">
+                    <div class="nk-block-head nk-block-head-sm">
+                        <div class="nk-block-between g-3">
+                            <div class="nk-block-head-content">
+                            </div><!-- .nk-block-head-content -->
+
+                        </div><!-- .nk-block-between -->
+                    </div><!-- .nk-block-head -->
+                    <div class="nk-block">
+                        <div class="card card-bordered card-stretch">
+                            <div class="card-inner-group">
+                                <div class="card-inner">
+                                    <div class="card-title-group">
+                                        <div class="card-title">
+                                            <h5 class="title">Liste de mes offres</h5>
+                                        </div>
 
 
-        <div class="block-header">
-            <div class="row">
+                                    </div><!-- .card-title-group -->
+                                </div><!-- .card-inner -->
+                                <div class="card-inner p-0">
+                                    <table class="table table-tranx">
+                                        <thead>
+                                            <tr class="tb-tnx-head">
+                                                <th class="tb-tnx-id"><span class="">Numero de l'offre</span></th>
+                                                <th class="tb-tnx-info">
+                                                    <span class="tb-tnx-desc d-none d-sm-inline-block">
+                                                        <span>Libelle</span>
+                                                    </span>
+                                                    <span class="tb-tnx-date d-md-inline-block d-none">
 
+                                                        <span class="d-none d-md-block">
+                                                            <span> Description </span>
 
-            </div>
-        </div>
+                                                        </span>
+                                                    </span>
+                                                </th>
+                                                <th class="tb-tnx-amount is-alt">
+                                                    <span class="tb-tnx-total">Prix </span>
+                                                    <span class="tb-tnx-status d-none d-md-inline-block">Statut </span>
+                                                </th>
+                                                <th class="tb-tnx-action">
+                                                    <span>&nbsp;</span>
+                                                </th>
+                                            </tr><!-- tb-tnx-item -->
+                                        </thead>
+                                        <tbody>
+                                            @foreach($liste as $l)
+                                            <tr class="tb-tnx-item">
+                                                <td class="tb-tnx-id">
+                                                    <a href="#"><span>{{$l->id}}</span></a>
+                                                </td>
+                                                <td class="tb-tnx-info">
+                                                    <div class="tb-tnx-desc">
+                                                        <span class="title">{{$l->name}}</span>
+                                                    </div>
+                                                    <div class="tb-tnx-date">
+                                                        <span class="date">{{ Str::limit($l->description, 30)}}</span>
 
+                                                    </div>
+                                                </td>
+                                                <td class="tb-tnx-amount is-alt">
+                                                    <div class="tb-tnx-total">
+                                                        <span class="amount">{{$l->price}} €</span>
+                                                    </div>
+                                                    <div class="tb-tnx-status">
+                                                        @if($l->statut=="yes")
+                                                        <span class="badge badge-dot bg-success">Disponible</span>
+                                                        @elseif($l->statut=="no")
+                                                        <span class="badge badge-dot bg-warning">Indisponible</span>
+                                                        @endif
+                                                    </div>
+                                                </td>
+                                                <td class="tb-tnx-action">
+                                                    <div class="dropdown">
+                                                        <a class="text-soft dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
+                                                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-xs">
+                                                            <ul class="link-list-plain">
+                                                                <li><a href="{{route('delete.offert',$l->id)}}">Supprimer l'offre</a></li>
+                                                                <li><a href="{{route('edit.offert', $l->id)}}">Modifier l'offre</a></li>
 
-
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>Liste De Vos offres</h2>
-                            <ul class="header-dropdown">
-
-
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <div class="table-responsive">
-                                <table class="table table-hover js-basic-example dataTable table-custom mb-0">
-                                    <thead class="thead-dark">
-                                        <tr>
-                                            <th>libelle</th>
-                                            <th>statut</th>
-
-                                            <th>Prix </th>
-                                            <th>Date De creation</th>
-
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-
-                                        @foreach($liste as $l)
-                                        <tr>
-                                            <td>{{$l->name}}</td>
-
-
-                                            <td>
-                                                @if($l->statut=="yes")
-                                                <label for=""class="text-success">disponible</label>
-                                                @elseif($l->statut=="no")
-                                               <label for="" class="text-danger">indisponible</label>
-                                               @endif
-                                            </td>
-
-                                            <td>{{$l->price}} </td>
-                                            <td>{{$l->created_at}}</td>
-
-                                            <td><a href={{route('delete.offert',$l->id)}} type="button"  class="btn btn-danger" title="spprimer"><i class="fa fa-trash"></i></a>
-                                                <button type="button" data-toggle="modal" data-target="#addcontact{{$l->id}}" class="btn btn-primary" title="Détail"><i class="fa fa-eye"></i></button>
-                                                <div class="modal fade" id="addcontact{{$l->id}}" tabindex="-1" role="dialog">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h6 class="title" id="defaultModalLabel">Modifer le Produit</h6>
-                                                            </div>
-
-
-                                                                    <div class="modal-body">
-
-
-                                                                        <form id="basic-form" action="{{route('offert.offert',$l->id)}}" method="post" novalidate>
-                                                                            @csrf
-
-                                                                            @method('PATCH')
-                                                                            <div class="form-group">
-                                                                                <label>Libellé De  l'offre
-                                                                                    @error('name')
-                                                                                    <small class="text-danger">{{$message}}</small>
-                                                                                    @enderror
-
-                                                                                </label>
-                                                                                <input type="text" class="form-control" required name="name" value="{{$l->name}}">
-                                                                            </div>
-
-
-                                                                            <div class="row">
-
-                                                                                <div class="col-md-6">
-                                                                                    <div class="form-group">
-                                                                                        <label>Statut De L'Offre
-                                                                                            @error('statut')
-                                                                                            <small class="text-danger">{{$message}}</small>
-                                                                                            @enderror
-                                                                                        </label>
-                                                                                      <select name="statut" id="" class="form-control" >
-                                                                                            @if($l->statut=="yes")
-                                                                                        <option value="yes">indisponible</option>
-                                                                                        <option value="yes">disponible</option>
-                                                                                            @elseif($l->statut=="no")
-                                                                                        <option value="no">Disponible</option>
-                                                                                        <option value="no">indisponible</option>
-                                                                                             @endif
-                                                                                      </select>
-                                                                                    </div>
-
-                                                                                </div>
-
-                                                                                <div class="col-md-6">
-                                                                                    <div class="form-group">
-                                                                                        <label>Prix De L'offre
-                                                                                            @error('price')
-                                                                                            <small class="text-danger">{{$message}}</small>
-                                                                                            @enderror
-                                                                                        </label>
-                                                                                        <input type="number" class="form-control" name="price"  value="{{$l->price}}"required>
-                                                                                    </div>
-
-                                                                                </div>
-
-                                                                            </div>
-
-
-
-
-                                                                            <div class="form-group">
-                                                                                <label>Description De l'Offre
-                                                                                    @error('description')
-                                                                                    <small class="text-danger">{{$message}}</small>
-                                                                                    @enderror
-                                                                                </label>
-                                                                                <textarea class="form-control" rows="5" cols="30" name="description" required>{{$l->description}}</textarea>
-                                                                            </div>
-
-
-
-                                                                            <br>
-                                                                            <button type="submit" class="btn btn-primary">Modifer Mes Offres</button>
-                                                                        </form>
-
-
-                                                                    </div>
-
+                                                            </ul>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </td>
-
-
-
-                                        </tr>
-
-
-                                         @endforeach
-
-
-
-
-
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                                                </td>
+                                            </tr><!-- tb-tnx-item -->
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div><!-- .card-inner -->
+                                <div class="card-inner">
+                                    <ul class="pagination justify-content-center justify-content-md-start">
+                                        <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><span class="page-link"><em class="icon ni ni-more-h"></em></span></li>
+                                        <li class="page-item"><a class="page-link" href="#">6</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">7</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                    </ul><!-- .pagination -->
+                                </div><!-- .card-inner -->
+                            </div><!-- .card-inner-group -->
+                        </div><!-- .card -->
+                    </div><!-- .nk-block -->
                 </div>
             </div>
-
+        </div>
     </div>
+    <!-- content @e -->
+    <!-- footer @s -->
+    <div class="nk-footer">
+        <div class="container-fluid">
+            <div class="nk-footer-wrap">
+                <div class="nk-footer-copyright"> © 2022 DashLite. Template by <a href="https://softnio.com" target="_blank">Softnio</a>
+                </div>
+                <div class="nk-footer-links">
+                    <ul class="nav nav-sm">
+                        <li class="nav-item dropup">
+                            <a href="#" class="dropdown-toggle dropdown-indicator has-indicator nav-link text-base" data-bs-toggle="dropdown" data-offset="0,10"><span>English</span></a>
+                            <div class="dropdown-menu dropdown-menu-sm dropdown-menu-end">
+                                <ul class="language-list">
+                                    <li>
+                                        <a href="#" class="language-item">
+                                            <span class="language-name">English</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="language-item">
+                                            <span class="language-name">Español</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="language-item">
+                                            <span class="language-name">Français</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="language-item">
+                                            <span class="language-name">Türkçe</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a data-bs-toggle="modal" href="#region" class="nav-link"><em class="icon ni ni-globe"></em><span class="ms-1">Select Region</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer @e -->
 </div>
-
-@include('sweetalert::alert')
-
 @endsection

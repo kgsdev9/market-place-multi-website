@@ -1,6 +1,6 @@
 @extends("dashboard.layout.app")
 @section('main')
-<div class="nk-content ">
+<div class="nk-content " style="margin-top:150px;">
     <div class="container-fluid">
         <div class="nk-content-inner">
             <div class="nk-content-body">

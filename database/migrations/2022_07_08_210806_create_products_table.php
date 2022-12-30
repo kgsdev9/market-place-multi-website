@@ -25,6 +25,8 @@ class CreateProductsTable extends Migration
             $table->tinyInteger('tendance')->nullable();
             $table->string('referencies')->nullable();
             $table->integer('quantity');
+            $table->string('tag')->nullable();
+            $table->string('sku_product')->nullable();
             $table->float('high_price')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
             $table->unsignedBigInteger('seller_id')->nullable();

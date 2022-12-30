@@ -14,10 +14,10 @@
                                 <div class="nk-block-head nk-block-head-lg">
                                     <div class="nk-block-between">
                                         <div class="nk-block-head-content">
-                                            <div class="nk-block-head-sub"><a class="back-to" href=""><em class="icon ni ni-arrow-left"></em><span>Retourner</span></a></div>
+                                          
                                             <h4 class="nk-block-title">NUMERO DE LA COMMANDE {{$order['code']}} </h4>
                                             <div class="nk-block-des">
-                                                <p>Merci De faire partie de la communaute VTP</p>
+                                                <p>Merci de faire confiance à VTP GROUP</p>
                                             </div>
                                         </div>
                                         <div class="nk-block-head-content align-self-start d-lg-none">
@@ -44,14 +44,6 @@
                                             </div>
                                             <div class="data-col data-col-end"></div>
                                         </div><!-- data-item -->
-                                        <div class="data-item">
-                                            <div class="data-col">
-                                                <span class="data-label">Lieu De Livraison</span>
-                                                <span class="data-value">{{$order['adresse_delivry']}}</span>
-                                            </div>
-                                            <div class="data-col data-col-end"><span class="data-more disable"></span></div>
-                                        </div><!-- data-item -->
-
 
                                         <div class="data-item" data-bs-toggle="modal" data-bs-target="#profile-edit">
                                             <div class="data-col">
@@ -88,8 +80,8 @@
                                         @foreach($order->products as $s)
                                         <div class="data-item">
                                             <div class="data-col">
-                                                <span class="data-label">Quantite</span>
-                                                <span class="data-value">{{$s->pivot->quantity}}</span>
+                                                <span class="data-label">Produit </span>
+                                                <span class="data-value">  {{$s->name}}  x {{$s->pivot->quantity}}</span>
                                             </div>
                                             <div class="data-col data-col-end"></div>
                                         </div><!-- data-item -->
@@ -97,6 +89,14 @@
                                             <div class="data-col">
                                                 <span class="data-label">Montant Payé</span>
                                                 <span class="data-value">{{$s->pivot->amount}} €</span>
+                                            </div>
+                                            <div class="data-col data-col-end"></div>
+                                        </div><!-- data-item -->
+
+                                        <div class="data-item">
+                                            <div class="data-col">
+                                                <span class="data-label">Total</span>
+                                                <span class="data-value"> {{$order['amount']}}€</span>
                                             </div>
                                             <div class="data-col data-col-end"></div>
                                         </div><!-- data-item -->

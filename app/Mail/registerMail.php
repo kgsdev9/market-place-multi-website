@@ -31,7 +31,7 @@ class registerMail extends Mailable
     public function build()
     {
         return $this
-                  ->from('vtp-market@vtp-market.com')
+                 ->from('vtp-market@vtp-market.com', 'VTP MARKET')
                   ->subject('VALIDATION DE COMPTE')
                   ->view('email.mailconfirmation');
     }

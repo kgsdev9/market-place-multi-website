@@ -7,7 +7,7 @@
                 <div class="nk-block-head nk-block-head-sm">
                     <div class="nk-block-between g-3">
                         <div class="nk-block-head-content">
-                            <h3 class="nk-block-title page-title">Product Detail</h3>
+                            <h3 class="nk-block-title page-title">Produit Detail</h3>
                             <div class="nk-block-des text-soft">
                                 <p>{{ $product->category->name }}</p>
                             </div>
@@ -32,16 +32,16 @@
                                                         <li data-bs-target="#carouselExCap" data-bs-slide-to="1" class=""></li>
                                                         <li data-bs-target="#carouselExCap" data-bs-slide-to="2" class=""></li>
                                                     </ol>
-                                                    <div class="carousel-inner text-white">
-                                                        <div class="carousel-item active">
-                                                            <img     src="{{asset('cover/'.$product->cover_image )}}" class="d-block w-50">
+                                                    <div class="carousel-inner text-white ">
+                                                        <div class="carousel-item active" >
+                                                            <img   style=" height:400px ;width:100%" src="{{asset('cover/'.$product->cover_image )}}" class="img-fluid d-block w-50">
                                                             <div class="carousel-caption d-none d-md-block">
 
                                                             </div>
                                                         </div>
                                                         @foreach ( $product->images as $i  )
                                                                 <div class="carousel-item">
-                                                                    <img src="{{asset('images/'.$i->image)}}" class="d-block w-50" alt="...">
+                                                                    <img style=" height:400px;width:100%" src="{{asset('images/'.$i->image)}}" class="img-fluid d-block w-50" alt="...">
                                                                     <div class="carousel-caption d-none d-md-block">
 
                                                                     </div>
@@ -72,8 +72,9 @@
                                         <h3>Description du produit </h3>
                                         <p>{{$product->description }}</p>
                                         <ul class="list list-sm list-checked">
-                                            <li>Pays de provenance {{$product->country }} </li>
-                                            <li>Ville  de provenance {{$product->city }}</li>
+                                            <li>Pays de provenance {{$product->country->name }} </li>
+                                            <li>Ville  de provenance {{$product->city->name }}  </li>
+                                            <li>Categorie du produit  {{$product->category->name }}  </li>
                                             <li>Quantite {{$product->quantity }}</li>
 
                                         </ul>
@@ -115,9 +116,9 @@
 
                                         <p>
                                                  <ul  type="number">
-                                                     <li>1-Le montant  est négocié  au  rabais  avec un potentiel acheteur</li>
+                                                     <li>1-Le montant  est négocié  au  rsabais  avec un potentiel acheteur</li>
                                                      <li>2-Le coupon est généré à partir du prix négocié au  rabais  </li>
-                                                     <li>3-Le coupon est n'est utilisable qu'une seule fois  </li>
+                                                     <li>3-Le coupon est  utilisable qu'une seule fois  </li>
                                                  </ul>
                                         </p>
                                         <p>
@@ -210,41 +211,63 @@
                 <em class="icon ni ni-cross"></em>
             </a>
             <div class="modal-header">
-                <h5 class="modal-title">Modal Title</h5>
+                <h5 class="modal-title">Modifier le produit</h5>
             </div>
             <div class="modal-body">
-                <form action="{{ route('update.product') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('update.product', $product->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                         @method('PUT')
                         <div class="row clearfix">
-
-                            <input type="hidden" name="product_id"  value="{{  $product->id }}">
-                            <div class="col-6">
+                            <div class="col-12">
                                 <div class="form-group">
                                     <label for="">Nom du produt </label>
-                                    <input type="text" class="form-control"  name="name" value="{{ $product->name }}">
+                                    <input type="text" class="form-control"  name="name" value="{{$product->name }}">
                                 </div>
                             </div>
 
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label for="">Nom Du Produit </label>
-                                    <input type="text" class="form-control" name="slug"  value="{{ $product->slug }}">
-                                </div>
-                            </div>
+
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="">Pays De Provenance Du produit  </label>
-                                    <input type="text" class="form-control"  name="country"  value="{{ $product->country }}">
+                                    <select name="country_id"  class="form-control">
+                                        <option value="{{$product->country->id }}">{{ $product->country->name }}</option>
+                                        @foreach ($country as $value )
+                                        @if (strcmp($product->country->name, $value->name)!=0)
+                                        <option value="{{$value->id}}">{{$value->name}}</option>
+                                        @endif
+                                        @endforeach
+
+                                    </select>
                                 </div>
                             </div>
 
-                            <div class="col-6">
+                            {{-- <div class="col-6">
                                 <div class="form-group">
                                     <label for="">Ville De Provenance Du produit</label>
-                                    <input type="text" class="form-control"  name="city" value="{{ $product->city }}">
+                                    <select name="city_id"  class="form-control">
+                                        @foreach ($city as $value )
+                                        <option value="{{$value->id}}">{{$value->name}}</option>
+                                        @endforeach
+
+                                    </select>
+                                </div>
+                            </div> --}}
+
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="">Ville  De Provenance Du produit  </label>
+                                    <select name="city_id"  class="form-control">
+                                        <option value="{{$product->city->id }}">{{ $product->city->name }}</option>
+                                        @foreach ($city as $value )
+                                        @if (strcmp($product->city->name, $value->name)!=0)
+                                        <option value="{{$value->id}}">{{$value->name}}</option>
+                                        @endif
+                                        @endforeach
+
+                                    </select>
                                 </div>
                             </div>
+
 
                             <div class="col-6">
                                 <div class="form-group">
@@ -291,7 +314,6 @@
                                 <div class="form-group">
                                     <label for="">Catégorie   </label>
                                     <select name="category_id" id="" class="form-control">
-
                                         <option value="{{$product->category->id }}">{{ $product->category->name }}</option>
                                         @foreach ($categories as $c)
                                         @if (strcmp($product->category->name, $c->name)!=0)

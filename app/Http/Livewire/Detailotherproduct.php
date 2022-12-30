@@ -62,7 +62,7 @@ class Detailotherproduct extends Component
 
 
     public function render()
-    {
+    {   
         return view('livewire.detailotherproduct');
     }
 }

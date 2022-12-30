@@ -2,104 +2,95 @@
 
 @section('main')
 
-<div id="wrapper" class="theme-cyan container" style="margin-top:100px;">
 
-    <!-- mani page content body part -->
-    <div id="main-content">
+<div id="main-content" style="margin-top: 10%">
 
-        <div class="row clearfix">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="header">
-                        <h2>Decrivez Brievement L'Offre</h2>
-                    </div>
-                    <div class="body">
-                        <form id="basic-form" action="{{route('offre.store')}}" method="post" novalidate enctype="multipart/form-data">
-                            @csrf
+    <div class="container-fluid">
+        <div class="card card-bordered card-preview">
+            <div class="card-inner">
+                <div class="preview-block" data-select2-id="12">
+                    <h4 class="title nk-block-title">Formulaire d'ajout d'offre</h4>
+                    <form id="basic-form" action="{{route('offre.store')}}" method="post" novalidate enctype="multipart/form-data">
+                        @csrf
+                        <div class="row gy-4" style="margin-top:10px;">
+                        <div class="col-lg-4 col-sm-6">
                             <div class="form-group">
-                                <label>Libellé De  l'offre
+                                <div class="form-control-wrap">
+                                    <input type="text" class="form-control form-control-xl form-control-outlined" required name="name" value="{{old('name')}}">
+
+                                    <label class="form-label-outlined" for="outlined-normal">
+                                        Libellé De  l'offre
                                     @error('name')
                                     <small class="text-danger">{{$message}}</small>
                                     @enderror
-
-                                </label>
-                                <input type="text" class="form-control" required name="name" value="{{old('name')}}">
+                                    </label>
+                                </div>
                             </div>
+                        </div>
 
-
-                            <div class="row">
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Statut De L'Offre
-                                            @error('statut')
-                                            <small class="text-danger">{{$message}}</small>
-                                            @enderror
-                                        </label>
-                                      <select name="statut" id="" class="form-control">
-
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="form-group">
+                                <div class="form-control-wrap">
+                                    <select   name="statut" class="form-select js-select2 select2-hidden-accessible" data-ui="xl" id="outlined-select" data-select2-id="outlined-select" tabindex="-1" aria-hidden="true">
+                                        <option value="default_option" >STATUT DE L'OFFRE</option>
                                         <option value="yes">Disponible</option>
                                         <option value="no">Non Disponible</option>
-                                      </select>
-                                    </div>
-
+                                    </select>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="form-group">
+                                <div class="form-control-wrap">
+                                    <div class="form-icon form-icon-right xl">
+                                        <em class="icon ni ni-calendar-alt"></em>
+                                    </div>
+                                    <input type="number" class="form-control form-control-xl form-control-outlined" name="price"  value="{{old('price')}}"required>
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Prix De L'offre
+                                    <label class="form-label-outlined" for="outlined-date-picker">
+                                        Prix De L'offre
                                             @error('price')
                                             <small class="text-danger">{{$message}}</small>
                                             @enderror
                                         </label>
-                                        <input type="number" class="form-control" name="price"  value="{{old('price')}}"required>
-                                    </div>
-
+                                    </label>
                                 </div>
-
                             </div>
-
-
-
-
+                        </div>
+                        <div class="col-lg-12col-sm-12">
                             <div class="form-group">
-                                <label>Description De l'Offre
-                                    @error('description')
-                                    <small class="text-danger">{{$message}}</small>
-                                    @enderror
-                                </label>
-                                <textarea class="form-control" rows="5" cols="30" name="description" required></textarea>
-                            </div>
+                                <div class="form-control-wrap has-timepicker">
+                                    <div class="form-icon form-icon-right xl">
+                                        <em class="icon ni ni-clock"></em>
+                                    </div>
+                                    <textarea  name="description" id=""  class="form-control form-control-xl form-control-outlined "  cols="30" rows="10"></textarea>
+                                    <label class="form-label-outlined" for="outlined-time-picker">Description de l'offre
 
 
-                            <div class="col-md-13">
-                                <div class="form-group">
-                                    <label>Enregistrer une image Pour L'offre
-                                        @error('image')
+                                        @error('description')
                                         <small class="text-danger">{{$message}}</small>
                                         @enderror
                                     </label>
-                                    <input type="file" class="form-control" name="image"  value="{{old('image')}}"required>
                                 </div>
-
                             </div>
+                        </div>
+                    </div>
 
+                    <div class="row gy-4" style="margin-top:5px;">
+                        <div class="col-lg-4 col-sm-6">
+                            <button class="btn btn-dark">ENREGISTRER L'OFFRE</button>
+                        </div>
 
-                            <br>
-                            <button type="submit" class="btn btn-primary">Enregistrer Cette Offre </button>
                         </form>
+
                     </div>
                 </div>
             </div>
-
         </div>
 
-
-    </div>
+     </div>
 
 </div>
-
-
 
 
 @endsection

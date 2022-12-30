@@ -24,7 +24,7 @@
                                         <i class="fas fa-heart"></i>
                                     </button>
                                     <a class="product-image" href="{{route('product.detail', $ressources->id)}}">
-                                        <img src="{{asset('assets/pages/images/product/01.jpg')}}" alt="product">
+                                        <img src="{{asset('cover/'.$ressources->cover_image)}}" alt="product">
                                     </a>
                                 </div>
                                 <div class="product-content">
@@ -34,16 +34,16 @@
                                         <i class="active icofont-star"></i>
                                         <i class="active icofont-star"></i>
                                         <i class="icofont-star"></i>
-                                        <a href="product-video.html">(3)</a>
+                                        <a href="{{route('product.detail', $ressources->id)}}">(3)</a>
                                     </div>
                                     <h6 class="product-name">
-                                        <a href="{{route('product.detail', $ressources->id)}}">{{$ressources->name}}</a>
+                                        <a href="{{route('product.detail', $ressources->id)}}">{{ Str::limit($ressources->name, 17)}}</a>
                                     </h6>
                                     <h6 class="product-price">
                                         <span>{{$ressources->price }} €</span>
                                     </h6>
                                     <div>
-                                        <button  wire:click="adfunction({{$ressources->id}})" class="product-add" title="Add to Cart">
+                                        <button  wire:click="adfunction({{$ressources->id}})" class="product-add" title="Ajouter au panier">
                                             <i class="fas fa-shopping-basket"></i>
                                             <span>Ajouter au Panier</span>
                                         </button>

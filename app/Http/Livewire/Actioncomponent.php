@@ -24,7 +24,6 @@ class Actioncomponent extends Component
 
     public function delete($id) {
         $cart = session()->get('cart');
-
         unset($cart[$id]);
         session()->put('cart', $cart);
         $this->emit('updateCartCount');

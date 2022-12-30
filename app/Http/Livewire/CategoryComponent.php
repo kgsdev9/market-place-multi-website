@@ -2,18 +2,23 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Category;
+use App\Models\Product;
 use Livewire\Component;
+use App\Models\Category;
+use Livewire\WithPagination;
 
 class CategoryComponent extends Component
 {
+
+
+
+
     public function render()
     {
 
-        $category  = Category::paginate(30);
+        $category  = Category::orderBy('name')->paginate(10);
         return view('livewire.category-component', [
-            'category' =>$category
-        ])
+            'category' =>$category, ])
         ->extends('layout.app')
         ->section('content');
     }

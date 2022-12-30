@@ -20,16 +20,46 @@ class Detailproduct extends Component
     public $comments ;
     public $product_detail  ;
 
+    public $id_product;
+
+    public $content;
+    public $id_comment;
+    public $rating;
+
+
     public function mount($id)  {
         $this->id_detail = $id ;
         $this->comments = Comment::where('product_id',$id)->get();
         $this->product_detail   = Product::findOrFail($id);
     }
 
+        public function addCommentReview($id) {
 
-    public function  simon($id) {
-        dd($id);
-    }
+                dd($id);
+        }
+
+
+
+    public function add(Request $request){
+        $input= $request->input();
+        Validator::make($input,[
+       'content'=>['required'],
+        ])->validate();
+
+        $r =Comment::create([
+         'content'=>$input["content"],
+         'user_id'=>Auth::user()->id,
+         'rating'   => $request['rating'],
+         'product_id'=>$input["product"],
+
+     ]);
+
+     Alert::toast('Commentaire Ajouter avec succès','success');
+     return redirect()->route('products.detail',$input["product"]);
+  }
+
+
+
 
     public function detailaddtocart($id) {
         $product = Product::findOrFail($id);
@@ -48,11 +78,12 @@ class Detailproduct extends Component
            }
            session()->put('cart', $cart);
            $this->emit('updateCartCount');
-
-           return Redirect()->back();
     }
 
 
+    public function addComment(){
+        dd('addd');
+    }
 
        public function addWishlist($id) {
 
@@ -80,10 +111,21 @@ class Detailproduct extends Component
     public function render()
     {
 
+        $urlcurrent =  url()->current() ;
+
+        $shareComponent = \Share::page(
+            $urlcurrent
+        )
+        ->facebook()
+        ->twitter()
+        ->linkedin()
+        ->telegram()
+        ->whatsapp()
+        ->reddit();
 
 
 
-        return view('livewire.detailproduct')
+        return view('livewire.detailproduct', compact('shareComponent'))
 
         ->extends('layout.app')
         ->section('content');

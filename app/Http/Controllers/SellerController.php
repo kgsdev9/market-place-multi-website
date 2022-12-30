@@ -100,7 +100,7 @@ class SellerController extends Controller
 
         // User::where('id',Auth::user()->id)->update(['owner_id'=>$seller->id]);
 
-        $msg= " Félicitation votre  Inscription en tant que vendeur est terminée  ";
+        $msg= " Félicitation votre  Inscription en tant que vendeur est terminée ";
 
         Alert::success('Inscription vendeur', $msg);
 
@@ -187,17 +187,9 @@ class SellerController extends Controller
         'house_piece'=>$house_piecepath,
         'rib'=>$ribpath,
     ]);
-
-
-       $msg= "Informations vendeur est modifié  ";
-
+       $msg= "Informations mise à jour  ";
        Alert::success('Modifiication', $msg);
-
        return  redirect()->route('seller.register.form');
-
-
-
-    dd($seller->photo);
   }
 
 

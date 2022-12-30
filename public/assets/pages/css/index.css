@@ -29,7 +29,7 @@
   height: 100%;
   z-index: -1;
   opacity: 0.05;
-  background: url(../images/banner-shape.png);
+  /* background: url(../images/single-banner.jpg); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

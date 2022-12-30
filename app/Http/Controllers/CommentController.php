@@ -27,8 +27,10 @@ class CommentController extends Controller
 
      ]);
 
-     Alert::toast('Commentaire Ajouter avec succès','success');
-        return redirect()->route('products.detail',$input["product"]);
+
+     Alert::toast('Commentaire Ajouté avec succès','success');
+     //route('product.detail', $random->id)
+        return redirect()->route('product.detail',$input["product"]);
      }
 
 
@@ -61,17 +63,22 @@ class CommentController extends Controller
 
         $comment = Comment::find($input['comment_id']);
 
-        Alert::toast('Commentaire modifier','success');
+        Alert::toast('Commentaire modifié','success');
 
-        return redirect()->route('products.detail',$comment->product_id);
+        return redirect()->route('product.detail',$comment->product_id);
      }
 
 
      public function delete($id){
          Comment::find($id)->delete();
 
-         Alert::toast('Commentaire supprimer','warning');
+         Alert::toast('Commentaire supprimé','warning');
          return redirect()->back();
+     }
+
+
+     public function route() {
+        dd('okay');
      }
 
 

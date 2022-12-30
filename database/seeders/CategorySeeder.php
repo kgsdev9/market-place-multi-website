@@ -23,6 +23,26 @@ class CategorySeeder extends Seeder
             ['name'=> 'Automobile'] ,
             ['name'=> 'Pièces Automobiles'] ,
             ['name'=> 'Projet Informatique divers'] ,
+            ['name'=> 'Bierre'],
+            ['name'=> 'Telivision'],
+            ['name'=> 'Boisson africaine'],
+            ['name'=> 'Telephone & tablette'],
+            ['name'=> 'Ordinateur Portable'],
+            ['name'=> 'Equipements'],
+            ['name'=> 'Mode Femme'],
+            ['name'=> 'Electroniques'],
+            ['name'=> 'Vetements Africains'],
+            ['name'=> 'Decodeur'],
+            ['name'=> 'Mode Africaine'],
+            ['name'=> 'Maquillage'],
+            ['name'=> 'Sac'],
+            ['name'=> 'Camera Digitale'],
+            ['name'=> 'Climatiseur'],
+            ['name'=> 'Maison et Meuble'],
+            ['name'=> 'Imprimantes'],
+            ['name'=> 'Mode Homme'],
+            ['name'=> 'Agriculture'],
+
         ]);
     }
 }

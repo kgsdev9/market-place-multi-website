@@ -18,6 +18,7 @@ class UserFactory extends Factory
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
             'role_id' =>rand(1, 5),
+            'owner_id'  =>rand(1, 300),
             'code' => $this->faker->numberBetween(100, 400),
             'confirmated_account' => $this->faker->boolean(1),
             'email_verified_at' => now(),

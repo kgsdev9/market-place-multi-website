@@ -3,7 +3,7 @@
 @section('main')
 
 
-<div id="wrapper" class="theme-cyan">
+<div id="wrapper" class="theme-cyan" style="margin-top: 50px;">
 
    <!-- mani page content body part -->
    <div id="main-content">
@@ -108,12 +108,6 @@
 
      </div>
      @endcan
-
-
-
-
-
-
 
 </div>
 

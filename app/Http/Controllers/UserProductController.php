@@ -72,8 +72,7 @@ class UserProductController extends Controller
         ->get();
 
         $tendance=  Product::orderBy('created_at')->take(5)->get();
-
-        return view('', compact('detail','otherproducts', 'tendance','comments', 'shareComponent'));
+        return view('livewire.detailproduct', compact('detail','otherproducts', 'tendance','comments', 'shareComponent'));
     }
 
     /**

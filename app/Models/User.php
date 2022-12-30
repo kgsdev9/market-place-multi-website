@@ -10,9 +10,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 
+
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable ,  TwoFactorAuthenticatable ;
+    use HasApiTokens, HasFactory, Notifiable ,  TwoFactorAuthenticatable , Billable ;
 
     /**
      * The attributes that are mass assignable.

@@ -47,7 +47,6 @@ class HomeController extends Controller
     public function show($id)
     {
         $product_seller =  Product::where('seller_id', '=', $id)->paginate(20);
-        dd($product_seller);
         return view('product.sellers.productsellers', [
             'productsellers'  =>  $product_seller
         ]);

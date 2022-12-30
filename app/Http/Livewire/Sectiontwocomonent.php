@@ -26,7 +26,6 @@ class Sectiontwocomonent extends Component
             }
             session()->put('cart', $cart);
             $this->emit('updateCartCount');
-            return Redirect()->back();
 
         }
 
@@ -34,7 +33,7 @@ class Sectiontwocomonent extends Component
 
     public function render()
     {
-        $ressourcesproduct = Product::where('price' , '>=' , 100)->get();
+        $ressourcesproduct = Product::where('price' , '>=' , 500)->get();
         return view('livewire.sectiontwocomonent', [
             'ressourcesproduct' => $ressourcesproduct
         ]);

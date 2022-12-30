@@ -55,7 +55,7 @@ class FortifyServiceProvider extends ServiceProvider
 
 
         Fortify::resetPasswordView(function ($request) {
-            return view('pages.auth.new-update', ['request' => $request]);
+            return view('auth.new-update', ['request' => $request]);
         });
 
 
@@ -70,7 +70,7 @@ class FortifyServiceProvider extends ServiceProvider
 
  Fortify::twoFactorChallengeView(function () {
     return view('pages.auth.two-factor-challenge');
-    
+
 });
 
 

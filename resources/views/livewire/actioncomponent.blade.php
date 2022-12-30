@@ -1,13 +1,20 @@
+
+
+
 <tbody>
     @foreach( (array)session('cart') as $id => $details)
     <tr>
         @php $total = 0 @endphp
         @php $total += $details['price'] * $details['quantity'] @endphp
-        <td class="table-image"><img src="{{asset('assets/pages/images/product/01.jpg')}}" alt="product"></td>
+        <td class="table-image"><img src="{{ asset('cover/' .$details['image'])}}" alt="product"></td>
         <td class="table-name"><h6>{{ Str::limit($details['name'], 30) }}</h6></td>
         <td class="table-price"><h6>{{ $details['price']  }} €</h6></td>
         <td class="table-status">
-        <h6 class="stock-out">Indisponible</h6>
+            @if($details['statut']=="disponible")
+            <h6 class="text-success">disponible</h6>
+            @elseif($details['statut']=="indisponible")
+            <h6 class="stock-out">Indisponible</h6>
+            @endif
         </td>
         <td class="table-shop">
          <div class="cart-action-group">

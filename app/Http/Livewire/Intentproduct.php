@@ -31,6 +31,13 @@ class Intentproduct extends Component
     }
 
 
+    public function deleteItems($id) {
+        $items =  Product::find($id);
+
+        }
+
+
+
     public function render()
     {
         $user = Auth::user();

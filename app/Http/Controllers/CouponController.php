@@ -23,24 +23,33 @@ class CouponController extends Controller
 
 
 
-        Product::where('id',$product->id)->update([
-            'high_price'=>$inputs['high_price'],
-        ]);
 
 
-        $rand = rand(0,432154);
+        if($inputs['high_price']>$product->price){
 
-        $coupon = Hash::make($rand);
+            Alert::toast("Erreur : le prix négocié > prix normale " , 'warning');
+        }else{
 
-        $cpn= Coupon::create(
-           [ 'product_id'=>$product->id,
-            'coupon'=>$coupon,
-            'price'=>$inputs['high_price']
-            ]
-        );
+            Product::where('id',$product->id)->update([
+                'high_price'=>$inputs['high_price'],
+            ]);
+
+            $rand = rand(0,432154);
+
+            $coupon = Hash::make($rand);
+
+            $cpn= Coupon::create(
+               [ 'product_id'=>$product->id,
+                'coupon'=>$coupon,
+                'price'=>$inputs['high_price']
+                ]
+            );
 
 
-        Alert::toast("Félicitation coupon générer" , 'success');
+            Alert::toast("Félicitation coupon générer" , 'success');
+
+
+        }
 
         return redirect()->route('edit.product',$product->id);
     }
@@ -94,11 +103,6 @@ class CouponController extends Controller
                    return redirect()->route('cart.index');
                 }
             }
-
-
-
-
-
 
 
 

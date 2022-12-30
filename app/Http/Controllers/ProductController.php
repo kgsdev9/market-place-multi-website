@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
 use App\Models\Image;
+use App\Models\Coupon;
+use App\Models\Country;
 use App\Models\Product;
 use App\Models\Category;
-use App\Models\Coupon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
 {
@@ -23,8 +25,10 @@ class ProductController extends Controller
 
     {
 
-        $category = Category::all();
-        return view('dashboard.product.productadd', compact('category'));
+        $cate = Category::all();
+        $country = Country::orderBy('name')->get();
+        $city =  City::orderBy('name')->get();
+        return view('dashboard.product.productadd', compact('cate', 'country', 'city'));
     }
 
     /**
@@ -41,6 +45,7 @@ class ProductController extends Controller
             'description'=>['required'],
             'price'=>['required','max:255'],
             'first_image'=>['required'],
+            'images'=>['required'],
             'quantity'=>['required','integer'],
 
         ])->validate();
@@ -49,16 +54,18 @@ class ProductController extends Controller
             $file = $request->file('first_image');
             $image_name = time(). '_'. $file->getClientOriginalName();
             $file->move(\public_path("cover/"), $image_name);
-
+            $code = rand(10000, 20000);
             $produit  = new Product([
                 'name'=>$request->name,
                 "slug" =>$request->name,
-                'country'=>$request->country,
-                'city'=>$request->city,
+                'country_id'=>$request->country,
+                'city_id'=>$request->city,
                 'statut'=>$request->statut,
                 'description'=>$request->description,
                 'referencies' =>$request->referencies,
                 'price'=>$request->price,
+                'sku_product' => $code ,
+                'tag'  => $request->tag,
                 'quantity'=>$request->quantity,
                 'category_id'=>$request->category_id,
                 'seller_id'=>Auth::user()->owner_id,
@@ -77,11 +84,10 @@ class ProductController extends Controller
                     $request['image'] = $imageNname;
                     $file->move(\public_path("/images"), $imageNname);
                     Image::create($request->all());
-
             }
-
         }
-        Alert::toast('Produit ajouté avec succès!','success');
+
+        Alert::success('success','Produit ajouté ');
         return redirect()->route('product_list');
     }
 
@@ -127,105 +133,66 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request) {
+    public function update(Request $request, $id) {
+             Validator::make($request->all(), [
+                'name' => ['required', 'string'],
+                'country_id' => ['required'],
+                'city_id' => ['required'],
+                'statut' =>['required'],
+                'price'  =>['required'],
+                'category_id' =>['required'],
+                'quantity' =>['required'],
+                'description' =>['required']
+            ])->validate();
 
-
-        $inputs = $request->input();
-         Validator::make($inputs, [
-            'name' => ['required', 'string'],
-            'slug' =>['required'],
-            'country' => ['required'],
-            'city' => ['required'],
-            'statut' =>['required'],
-            'price'  =>['required'],
-            'category_id' =>['required'],
-            'quantity' =>['required'],
-            'description' =>['required']
-
-        ])->validate();
-
-
+        $product = Product::findOrFail($id);
+        $destination  = "cover/" .$product->cover_image ;
         if($request->hasFile('image')) {
-            $i=$request->file('image')->getClientOriginalName();
-            $chemin = 'cover/'.$i;
-            if(File::exists($chemin)) {
-            $docs =    File::delete($chemin) ;
+            if( File::exists($destination)) {
+                File::delete($destination) ;
             }
             $file = $request->file('image');
-            $extention  = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extention;
-            $file->move('cover/' , $filename);
-
-            Product::where('id',$inputs['product_id'])->update([
-                'name'=>$inputs['name'],
-                'slug' =>$inputs['slug'],
-                'country'=>$inputs['country'],
-                'city'=>$inputs['city'],
-                'statut'=>$inputs['statut'],
-                'price'=>$inputs['price'],
-                'category_id'=>$inputs['category_id'],
-                'quantity'=>$inputs['quantity'],
-                'description'=>$inputs['description'],
-
-                'cover_image'=>$filename
+              $product->cover_image = time(). "_".$file->getClientOriginalName();
+              $file->move(\public_path("/cover"),$product->cover_image);
+                $request['image']  =$product->image ;
+              }
+            $product->update([
+                'name'=>$request->name,
+                'slug' =>$request->name,
+                'country_id'=>$request->country_id,
+                'city_id'=>$request->city_id,
+                'statut'=>$request->statut,
+                'description'=>$request->description,
+                'referencies' =>$request->referencies,
+                'price'=>$request->price,
+                'tag'  => $request->tag,
+                'quantity'=>$request->quantity,
+                'category_id'=>$request->category_id,
+                'seller_id'=>Auth::user()->owner_id,
+                'cover_image' =>$product->cover_image,
             ]);
 
-
-
-
-         }else{
-
-            Product::where('id',$inputs['product_id'])->update([
-                'name'=>$inputs['name'],
-                'slug' =>$inputs['slug'],
-                'country'=>$inputs['country'],
-                'city'=>$inputs['city'],
-                'statut'=>$inputs['statut'],
-                'price'=>$inputs['price'],
-                'category_id'=>$inputs['category_id'],
-                'quantity'=>$inputs['quantity'],
-                'description'=>$inputs['description'],
-
-
-            ]);
-
-
-         }
-
-
-
-    if($request->hasFile("images")) {
-
-
-
-            foreach($request->file("images") as $file) {
-                dd($file);
-                $image = Image::where('product_id',$inputs['product_id'])
-                ->where('image',$file->getClientOriginalName())
-                ->first();
-                dd($image);
-                $chemin ='images/'.$file->getClientOriginalName();
-                if(File::exists($chemin)) {
-                    $docs =File::delete($chemin) ;
-                    }
-                    $imageNname = time(). '_' .$file->getClientOriginalName();
-                    $request['product_id'] = $inputs['product_id'];
-                    $request['image'] = $imageNname;
-                    $file->move(\public_path("/images"), $imageNname);
-                    Image::updated($request->all());
+            if($request->hasFile("images")) {
+                $files = $request->file("images");
+                foreach($files as $file) {
+                    $imageName =time(). "_".$file->getClientOriginalName();
+                    $request["product_id"] = $id ;
+                    $request["images"] = $imageName;
+                    $file->move(\public_path("images"), $imageName);
+                    Image::create($request->all());
+                }
             }
 
-    }
-
-
-         Alert::toast('Modifier avec succès','success');
-        return redirect()->route('product_list');
-
-
+            Alert::success('success','Produit Modifié');
+            return redirect()->back();
 
      }
 
 
+
+
+    //  Alert::toast('Modifier avec succès','success');
+    //  return redirect()->route('product_list');
     /**
      * Remove the specified resource from storage.
      *
@@ -237,31 +204,19 @@ class ProductController extends Controller
     {
 
         $product = Product::findOrFail($id);
-
         $destination  = "cover/" .$product->cover_image ;
 
         if(File::exists($destination)) {
-
             File::delete($destination);
         }
-
         $images = Image::where('product_id', $product->id)->get();
-
-            foreach($images  as $images) {
-
-                if(File::exists("images" .$images->image)){
-
-                        File::delete("images" .$images->image);
-
+            foreach($images  as $image) {
+                if(File::exists("images/" .$image->image)){
+                     File::delete("images/" .$image->image);
                 }
             }
-
-            $images->delete();
-            $product->delete();
-           return Redirect()->route('product_list')->with('delete', 'Produit Supprimé');
-
-
-
+        $product->delete();
+        return redirect()->back();
     }
 
 
@@ -283,10 +238,12 @@ class ProductController extends Controller
     public function detail($id){
 
         $product = Product::where('id',$id)->first();
+        $country  = Country::all();
+        $city =  City::all();
         $coupons = Coupon::where('product_id',$product->id)->paginate(10);
         $categories = Category::all();
 
-      return view('dashboard.product.detailproduct',compact('product','categories','coupons'));
+      return view('dashboard.product.detailproduct',compact('product','categories','coupons', 'city', 'country'));
 
     }
 

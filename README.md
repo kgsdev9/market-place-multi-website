@@ -1,66 +1,54 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## Installation Application laravel 9
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+### 1. Comment cloner le  repository  Sur votre ordinateur
 
-## About Laravel
+### 2. Install dependencies with composer
+```sh
+composer install
+```
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### 3.Créer une base de données local 
+Name the dabatase `vtp`. vous pouvez créer une base de donnnées et preciser dans le fichier  `.env` file.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 4. Run migrations
+```sh
+php artisan migrate
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 5. Seed the database
+```sh
+php artisan db:seed
+```
 
-## Learning Laravel
+### 6. Log into the platform
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Default credentials for developers are:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+User: `vtpadministration@gmail.com`
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Pass: `vtp123@G`
 
-## Laravel Sponsors
+Serveur Mysql : 185.98.131.177 (à la place de localhost quand vous installez un CMS)
+Nom de la base Mysql : vtpma1956500
+Identifiant / login : vtpma1956500
+Mot de passe : ci6kmlaqsx
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```
+Informations Paypal
+Email : vtp.sas.france@gmail.com
+CLIENT ID AXl1k2YA1ykTLT7BDxfmhuOWvbGeyGyQ8cciUydY41z5xj7whWw_QVzJYqjLrVPE0X6osDbzkKhzzrt9
+SECRET KEY =EACsa8QADGXPXeKKS9JozreGwPt-cKgw4JCDk6rS96TQtw_nz9xme_Po0zwc01kBXeIHiaTty03wKyPn
+Informations Stripe 
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+CLES LIVES LARAVEL 
 
-## Code of Conduct
+prod_Mvt2VrGSXbtWab id pour 1 mois
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+pour 1 ans  prod_Mvt5beyYP1d31w
 
-## Security Vulnerabilities
+cle public pk_live_51LgXwGJcpY89UETmRzrpGQZ4QdHI7qNk0RySISaDiukMX3dcOYUQcRefUJHrA6UIV4jPBVLNhV5cGIomfKcEVxr400BuSKRoR0
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+cle secrete : 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 

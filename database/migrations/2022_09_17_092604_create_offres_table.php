@@ -16,7 +16,7 @@ class CreateOffresTable extends Migration
         Schema::create('offres', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->enum('statut',['yes','no'])->default('yes');
+            $table->string('statut');
             $table->text('description');
             $table->float('price');
             $table->unsignedBigInteger('entreprise_id');

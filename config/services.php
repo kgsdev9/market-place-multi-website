@@ -14,6 +14,12 @@ return [
     |
     */
 
+    'stripe' => [
+        'model'  => env('CASHIER_MODEL'),
+        'key'    => env('STRIPE_KEY'),
+        'secret_key' => env('STRIPE_SECRET'),
+    ],
+
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),

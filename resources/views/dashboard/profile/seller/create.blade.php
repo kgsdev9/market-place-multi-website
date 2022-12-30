@@ -46,7 +46,7 @@
                                                                 >
                         </div>
                         <!-- End Form Group -->
-                </div>
+                </div>      
 
                 <div class="col-md-6">
                       <!-- Form Group -->
@@ -55,7 +55,7 @@
 
                             <small style="color:red">{{ $message}}</small>
                             @enderror</label></label>
-                                                                <input type="text" class="form-control" name="media" id="signinSrPasswordExample2" placeholder="Compte social ( facultatif )"
+                                                                <input type="text" class="form-control" name="media" id="signinSrPasswordExample2" placeholder="https://knowledgebase.constantcontact.com/articles/KnowledgeBase/6069-trouver-lURL-dun-profil-Facebook-ou-dune-page-pro?lang=fr"
                                                             >
                     </div>
                     <!-- End Form Group -->

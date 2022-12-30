@@ -77,7 +77,12 @@
                     <label class="form-label" for="signinSrnomExample3">Uploader une photo @error('photo')
 
                     <small style="color:red">{{ $message}}</small>
-                    @enderror</label>
+                    @enderror
+                    <a href="{{asset('seller/images/photo/'.$seller->photo)}}" target="about_blank">consulter</a>
+
+                </label>
+
+
                                                             <span class="text-danger">*</span>
                                 </label>
                                 <input type="file" class="form-control" name="photo"
@@ -86,8 +91,11 @@
                 <div class="js-form-message form-group col-md-6">
                     <label class="form-label" for="signinSrnomExample3">Uploader votre carte nationale d'indidentité @error('cni')
 
+
                 <small style="color:red">{{ $message}}</small>
-                                @enderror</label>
+                                @enderror
+                                <a href="{{asset('seller/images/cni/'.$seller->cni)}}" target="about_blank">consulter</a>
+                            </label>
                                                                         <span class="text-danger">*</span>
                                     </label>
                                     <input type="file" class="form-control" name="cni"  placeholder="Entrer votre nom"   >
@@ -102,19 +110,25 @@
             <div class="row">
                 <!-- Form Group -->
                 <div class="js-form-message form-group col-md-6">
-                    <label class="form-label" for="signinSrnomExample3">Uploader votre rib @error('rib')
+                    <label class="form-label" for="signinSrnomExample3">Uploader votre rib
+                            <a href="{{asset('seller/images/rib/'.$seller->rib)}}" target="about_blank">consulter</a>
+
+                        @error('rib')
 
                 <small style="color:red">{{ $message}}</small>
                                 @enderror</label>
                                                                         <span class="text-danger">*</span>
                                     </label>
-                                    <input type="file" class="form-control" name="rib"  placeholder="Entrer votre nom"   >
+                                    <input type="file" class="form-control" name="rib"  placeholder="Entrer votre nom" >
                                 </div>
                                 <!-- End Form Group -->
 
                                         <!-- Form Group -->
                                         <div class="js-form-message form-group col-md-6">
-                                            <label class="form-label" for="signinSrnomExample3">Uploader Votre pièce de  résidence @error('house_piece')
+                                            <label class="form-label" for="signinSrnomExample3">Uploader Votre pièce de  résidence
+                                                <a href="{{asset('seller/images/house/'.$seller->house_piece)}}" target="about_blank">consulter</a>
+
+                                                @error('house_piece')
 
                             <small style="color:red">{{ $message}}</small>
                             @enderror</label>

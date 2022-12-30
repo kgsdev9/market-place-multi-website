@@ -21,7 +21,7 @@
                             <table class="table table-tranx">
                                 <thead>
                                     <tr class="tb-tnx-head">
-                                        <th class="tb-tnx-id"><span class="">#</span></th>
+                                        <th class="tb-tnx-id"><span class=""></span></th>
                                         <th class="tb-tnx-info">
                                             <span class="tb-tnx-desc d-none d-sm-inline-block">
                                                 <span>Titre De L'annonce</span>
@@ -48,7 +48,7 @@
                                     @foreach ($annonce as $cate )
                                     <tr class="tb-tnx-item">
                                         <td class="tb-tnx-id">
-                                            <a href="#"><span>4947</span></a>
+
                                         </td>
                                         <td class="tb-tnx-info">
                                             <div class="tb-tnx-desc">

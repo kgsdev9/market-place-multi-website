@@ -32,11 +32,11 @@
                                 @foreach ($product as $heart  )
                                 <tr>
 
-                                    <td class="table-image"><img src="{{asset('assets/pages/images/product/01.jpg')}}" alt="product"></td>
+                                    <td class="table-image"><img src="{{asset('cover/'.$heart->cover_image)}}" alt="product"></td>
 
                                     <td class="table-name"><h6>{{Str::limit( $heart->product->name, 30)}}</h6></td>
                                     <td class="table-price"><h6>{{$heart->product->price}} €</h6></td>
-                                    <td class="table-desc"><p>{{Str::limit( $heart->product->description, 40)}}<a href="product-video.html">Consulter</a></p></td>
+                                    <td class="table-desc"><p>{{Str::limit( $heart->product->description, 40)}}</p></td>
                                     <td class="table-status">
                                         @if($heart->product->statut =="disponible")
                                         <h6 class="stock-out">en stock</h6>
@@ -50,8 +50,8 @@
 
                                     </td>
                                     <td class="table-action">
-                                        <a class="view" href="{{route('product.detail', $heart->product->id)}}" title="Quick View"><i class="fas fa-eye"></i></a>
-                                        <a class="trash" href="#" title="Remove Wishlist"><i class="icofont-trash"></i></a>
+                                        <a class="view" href="" title="Quick View"><i class="fas fa-eye"></i></a>
+                                        <a class="trash" href="" title="Remove Wishlist"><i class="icofont-trash"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -69,9 +69,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="text-center mt-5">
-                        <button class="btn btn-outline">
-                           Consulter D'autres Produits
-                        </button>
+                        <a href="{{route('index.product')}}" class="btn btn-outline">Consulter D'autres Produits</a>
+
                     </div>
                 </div>
             </div>

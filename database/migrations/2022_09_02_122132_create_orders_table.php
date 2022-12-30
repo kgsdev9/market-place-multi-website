@@ -21,7 +21,7 @@ class CreateOrdersTable extends Migration
             $table->string('city_delivry');
             $table->string('phone');
             $table->string('quantity');
-            $table->string('charge_id');
+            $table->string('email');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->nullable();
             $table->timestamps();

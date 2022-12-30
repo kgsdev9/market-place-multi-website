@@ -2,115 +2,61 @@
 @section('main')
 
 
-
-
-
-<div id="main-content">
+<div class="nk-content ">
     <div class="container-fluid">
-        <div class="block-header">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12 p-2">
-                    <h2></h2>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-dashboard"></i></a></li>
-                        <li class="breadcrumb-item">Messages</li>
-                        <li class="breadcrumb-item active">reçus</li>
-                    </ul>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
-
-                </div>
-            </div>
-        </div>
-
-        <div class="row clearfix">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="mobile-left">
-
-                    </div>
-                    <div class="mail-action clearfix">
-                        <div class="float-left">
-                            <div class="fancy-checkbox d-inline-block">
-                                <label>
-
-                                    <span></span>
-                                </label>
-                            </div>
-
-                        </div>
-                        <div class="float-right ml-auto">
-                            <div class="pagination-email d-flex align-items-center">
-                                <p> </p>
-                                <div class="btn-group ml-2">
-                                    {{$messages->links()}}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mail-inbox">
-                        <div class="mail-left collapse" id="email-nav">
-
-                        </div>
-                        <div class="mail-right">
-                            <div class="header d-flex align-center">
-                                <h2>Messages reçus    {{count($messages)}}</h2>
-                                <form class="ml-auto">
-                                    <div class="input-group">
-
+        <div class="nk-content-inner">
+            <div class="nk-content-body">
+                <div class="nk-block">
+                    <div class="card card-bordered">
+                        <div class="card-aside-wrap">
+                            <div class="card-inner card-inner-lg">
+                                <div class="nk-block-head nk-block-head-lg">
+                                    <div class="nk-block-between">
+                                        <div class="nk-block-head-content">
+                                            <h4 class="nk-block-title">Liste de vos messages Recu</h4>
+                                            <div class="nk-block-des">
+                                                <p>Messages envoyés</p>
+                                            </div>
+                                        </div>
+                                        <div class="nk-block-head-content align-self-start d-lg-none">
+                                            <a href="#" class="toggle btn btn-icon btn-trigger mt-n1" data-target="userAside"><em class="icon ni ni-menu-alt-r"></em></a>
+                                        </div>
                                     </div>
-                                </form>
-                            </div>
-                            <div class="mail-action clearfix">
-                                <div class="float-left">
-                                    <div class="fancy-checkbox d-inline-block">
-                                        <label>
+                                </div><!-- .nk-block-head -->
+                                <div class="nk-block">
+                                    <div class="card card-bordered">
+                                        <div class="card-inner-group">
 
-                                            <span></span>
-                                        </label>
-                                    </div>
+                                            @foreach ($messages as $msg)
+                                            <div class="card-inner">
+                                                <div class="between-center flex-wrap flex-md-nowrap g-3">
+                                                    <div class="nk-block-text">
+                                                        <h6>Destinateur  {{$msg->destinataire->name}} &nbsp; <span class="badge bg-success ms-0">recu le {{$msg->created_at}} </span></h6>
+                                                        <p>Objet  {{$msg->sujet}}</p>
 
-                                </div>
-                                <div class="float-right ml-auto">
+                                                    </div>
+                                                    <div class="nk-block-actions">
+                                                        <a href="{{route('see.sms',$msg->id)}}" class="btn btn-primary">Detail</a>
+                                                    </div>
+                                                </div>
+                                            </div><!-- .card-inner -->
+                                            @endforeach
+                                        </div><!-- .card-inner-group -->
 
-                                </div>
-                            </div>
-                            <div class="mail-list">
-                                <ul class="list-unstyled">
-                                    @foreach ($messages as $msg)
-                                    <li class="clearfix">
-                                        <div class="mail-detail-left">
-                                            <label class="fancy-checkbox">
+                                        {{$messages->links()}}
+                                    </div><!-- .card -->
+                                </div><!-- .nk-block -->
+                            </div><!-- .card-inner -->
 
-                                                <span></span>
-                                            </label>
-
-                                        </div>
-                                        <div class="mail-detail-right">
-                                            <h6 class="sub"><a href="javascript:void(0);" class="mail-detail-expand">Objet : {{$msg->sujet}} </span></h6>
-
-                                            <span class="time"> Date :  {{$msg->created_at}}</span>
-                                        </div>
-                                        <div class="hover-action">
-                                            <a class="btn btn-warning mr-2" href="{{route('see.sms',$msg->id)}}"  title="ouvrir"><i class="fa fa-eye"></i></a>
-
-                                        </div>
-                                    </li>
-                                    @endforeach
-
-
-
-                                </ul>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
+                        </div><!-- .card-aside-wrap -->
+                    </div><!-- .card -->
+                </div><!-- .nk-block -->
             </div>
         </div>
     </div>
 </div>
+
+
 
 @include('sweetalert::alert');
 @endsection

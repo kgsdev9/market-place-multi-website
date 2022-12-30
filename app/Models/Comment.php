@@ -11,6 +11,7 @@ class Comment extends Model
 
     protected $fillable=[
         'content',
+        'rating',
         'user_id',
         'product_id',
     ];

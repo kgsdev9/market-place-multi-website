@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Product;
 use Livewire\Component;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 
@@ -25,16 +26,20 @@ class ProductComponent extends Component
                    "product_id"  =>$product->id,
                ];
            }
+           $this->dispatchBrowserEvent('message', [
+            'text' => 'Produit ajouté au panier',
+            'type'  => 'info',
+            'status'  => 401
+           ]);
            session()->put('cart', $cart);
            $this->emit('updateCartCount');
 
-           return Redirect()->back();
+
        }
 
     public function render()
     {
-
-        $this->product = Product::get();
+        $this->product = Product::where('price', '<' ,60)->take(30)->get();
         return view('livewire.product-component', [
             'product'  =>$this->product
         ]);

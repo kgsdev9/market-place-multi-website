@@ -14,15 +14,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(CategorySeeder::class);
-        $this->call(RoleSeeder::class);
-        \App\Models\Country::factory(100)->create();
-        \App\Models\City::factory(100)->create();
-         \App\Models\User::factory(20)->create();
-        \App\Models\Seller::factory(100)->create();
-         \App\Models\Product::factory(100)->create();
-        \App\Models\Annonce::factory(10)->create();
-        //  \App\Models\Category::factory(10)->create();
+        // $this->call(CategorySeeder::class);
+        // $this->call(RoleSeeder::class);
+        // \App\Models\Country::factory(324)->create();
+        // \App\Models\City::factory(100)->create();
+        // \App\Models\Seller::factory(6)->create();
+        // // // \App\Models\Carrier::factory(100)->create();
+        // \App\Models\User::factory(100)->create();
+        // // // \App\Models\Entreprise::factory(100)->create();
+        // // // \App\Models\Offre::factory(100)->create();
+        // // //  \App\Models\Letternews::factory(100)->create();
+        //  \App\Models\Product::factory(100)->create();
+        // //  \App\Models\Coeur::factory(100)->create();
+        // //  \App\Models\Comment::factory(100)->create();
+        // \App\Models\Annonce::factory(100)->create();
+        // // \App\Models\SendMessage::factory(100)->create();
+
 
     }
 }

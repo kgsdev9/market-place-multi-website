@@ -20,7 +20,30 @@ class OffreController extends Controller
         return view('dashboard.profile.entreprise.offre.form');
     }
 
+
 }
+
+
+
+    public function update_offre(Request $request , $id) {
+        $update_offert= Offre::find($id);
+        $update_offert->name = $request->input('name');
+        $update_offert->statut = $request->input('statut');
+        $update_offert->description = $request->input('description');
+        $update_offert->price = $request->input('price');
+        $update_offert->update();
+        Alert::success('Enregistrement','Modifier avec succès');
+         return redirect()->route('liste.offert');
+    }
+
+public function edit_offrert($id) {
+    $resssourcesOffert = Offre::find($id);
+
+    return view('dashboard.profile.entreprise.offre.edit', compact('resssourcesOffert'));
+
+}
+
+
     public function store(Request $request){
 
 
@@ -38,14 +61,6 @@ class OffreController extends Controller
     $offre->description = $request->input('description');
     $offre->price = $request->input(('price'));
     $offre->entreprise_id = $query->id ;
-
-    if($request->hasFile('image')) {
-        $file = $request->file('image');
-        $extention  = $file->getClientOriginalExtension();
-        $filename = time().'.'.$extention;
-        $file->move('offert/images/', $filename);
-        $offre->image = $filename;
-     }
      $offre->save();
      Alert::success('Enregistrement','Ajouter avec succès');
      return redirect()->route('liste.offert');
@@ -86,19 +101,19 @@ class OffreController extends Controller
 
     }
 
-    public function edit(Request $request, $id) {
+//     public function edit(Request $request, $id) {
 
-    $update_offert= Offre::find($id);
+//     $update_offert= Offre::find($id);
 
-    $update_offert->name = $request->input('name');
-    $update_offert->statut = $request->input('statut');
-    $update_offert->description = $request->input('description');
-    $update_offert->price = $request->input('price');
+//     $update_offert->name = $request->input('name');
+//     $update_offert->statut = $request->input('statut');
+//     $update_offert->description = $request->input('description');
+//     $update_offert->price = $request->input('price');
 
-    $update_offert->update();
-    Alert::success('Enregistrement','Modifier avec succès');
-     return redirect()->route('liste.offert');
-}
+//     $update_offert->update();
+//     Alert::success('Enregistrement','Modifier avec succès');
+//      return redirect()->route('liste.offert');
+// }
 
 
 public function seller_see_orfers(){

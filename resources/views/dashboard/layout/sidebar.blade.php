@@ -5,10 +5,7 @@
             <a href="#" class="nk-nav-compact nk-quick-nav-icon d-none d-xl-inline-flex toggle-active" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
         </div>
         <div class="nk-sidebar-brand">
-            <a href="html/hotel/index.html" class="logo-link nk-sidebar-logo">
-                <img class="logo-light logo-img" src="./images/logo.png" srcset="./images/logo2x.png 2x" alt="logo">
-                <img class="logo-dark logo-img" src="./images/logo-dark.png" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
-            </a>
+
         </div>
     </div><!-- .nk-sidebar-element -->
     <div class="nk-sidebar-element nk-sidebar-body">
@@ -18,14 +15,14 @@
                 <ul class="nk-menu">
                     <li class="nk-menu-item">
                         <a href="{{route('dashboard')}}" class="nk-menu-link" data-bs-original-title="" title="">
-                            <span class="nk-menu-icon"><em class="icon ni ni-setting-alt-fill"></em></span>
+                            <span class="nk-menu-icon"> <em class="icon ni ni-dashboard-fill"></em></span>
                             <span class="nk-menu-text">Tableau de bord</span>
                         </a>
                     </li>
                             @can('can_annonceur')
                         <li class="nk-menu-item current-page">
                             <a href="{{route('profile')}}" class="nk-menu-link" data-bs-original-title="" title="">
-                                <span class="nk-menu-icon"><em class="icon ni ni-dashboard-fill"></em></span>
+                                <span class="nk-menu-icon"><em class="icon ni ni-users-fill"></em></span>
                                 <span class="nk-menu-text">Gestion de compte </span>
                             </a>
                         </li><!-- .nk-menu-item -->
@@ -52,7 +49,7 @@
                     @can('is_buyer')
                     <li class="nk-menu-item has-sub">
                         <a href="" class="nk-menu-link nk-menu-toggle" data-bs-original-title="" title="">
-                            <span class="nk-menu-icon"><em class="icon ni ni-home-fill"></em></span>
+                            <span class="nk-menu-icon"><em class="icon ni ni-tranx"></em></span>
                             <span class="nk-menu-text">Gestion de Commande</span>
                         </a>
 
@@ -90,12 +87,12 @@
                     @can('can_annonceur')
                     <li class="nk-menu-item has-sub">
                         <a href="#" class="nk-menu-link nk-menu-toggle" data-bs-original-title="" title="">
-                            <span class="nk-menu-icon"><em class="icon ni ni-coins"></em></span>
+                            <span class="nk-menu-icon"><em class="icon ni ni-chat-circle-fill"></em></span>
                             <span class="nk-menu-text">Boite de reception</span>
                         </a>
                         <ul class="nk-menu-sub">
                             <li class="nk-menu-item">
-                                <a href="{{route('receve.sms')}}" class="nk-menu-link" data-bs-original-title="" title=""><span class="nk-menu-text">Messages recus </span></a>
+                                <a href="{{route('receve.sms')}}" class="nk-menu-link" data-bs-original-title="" title=""><span class="nk-menu-text">Messages reçus </span></a>
                             </li>
                             <li class="nk-menu-item">
                                 <a href="{{route('liste.sms')}}" class="nk-menu-link" data-bs-original-title="" title=""><span class="nk-menu-text">Messages envoyés</span></a>
@@ -106,8 +103,8 @@
                     @elsecan('annonce_account')
                     <li class="nk-menu-item has-sub">
                         <a href="#" class="nk-menu-link nk-menu-toggle" data-bs-original-title="" title="">
-                            <span class="nk-menu-icon"><em class="icon ni ni-coins"></em></span>
-                            <span class="nk-menu-text">Boite D'annonces</span>
+                            <span class="nk-menu-icon"> <em class="icon ni ni-chat-circle-fill"></em></span>
+                            <span class="nk-menu-text">Boite D'annonce</span>
                         </a>
                         <ul class="nk-menu-sub">
                             <li class="nk-menu-item">
@@ -122,7 +119,7 @@
                     @can('annonce_account')
                     <li class="nk-menu-item has-sub">
                         <a href="#" class="nk-menu-link nk-menu-toggle" data-bs-original-title="" title="">
-                            <span class="nk-menu-icon"><em class="icon ni ni-coins"></em></span>
+                            <span class="nk-menu-icon"><em class="icon ni ni-tile-thumb"></em></span>
                             <span class="nk-menu-text">Gestion d'annonces</span>
                         </a>
                         <ul class="nk-menu-sub">
@@ -135,24 +132,31 @@
                         </ul>
                     </li><!-- .nk-menu-item -->
 
+                    <li class="nk-menu-item">
+                        <a href="{{url('/plan')}}" class="nk-menu-link" data-bs-original-title="" title="">
+                            <span class="nk-menu-icon"><em class="icon ni ni-setting-alt-fill"></em></span>
+                            <span class="nk-menu-text">Souscription</span>
+                        </a>
+                    </li><!-- .nk-menu-item    -->
+                    <li class="nk-menu-item">
+                        <a href="{{route('subscription.list')}}" class="nk-menu-link" data-bs-original-title="" title="">
+                            <span class="nk-menu-icon"><em class="icon ni ni-setting-alt-fill"></em></span>
+                            <span class="nk-menu-text">Liste Souscription</span>
+                        </a>
+                    </li>
                     @endcan
 
 
                     @can('is_seller')
                     <li class="nk-menu-item">
                         <a href="{{ route('seller.offers') }}" class="nk-menu-link" data-bs-original-title="" title="">
-                            <span class="nk-menu-icon"><em class="icon ni ni-chat-circle-fill"></em></span>
+                            <span class="nk-menu-icon"><em class="icon ni ni-reports"></em></span>
                             <span class="nk-menu-text">Transporteurs</span>
                         </a>
                     </li><!-- .nk-menu-item -->
 
                     @endcan
-                    <li class="nk-menu-item">
-                        <a href="html/hotel/settings.html" class="nk-menu-link" data-bs-original-title="" title="">
-                            <span class="nk-menu-icon"><em class="icon ni ni-setting-alt-fill"></em></span>
-                            <span class="nk-menu-text">Configuration</span>
-                        </a>
-                    </li><!-- .nk-menu-item -->
+
 
                 </ul><!-- .nk-menu -->
             </div></div></div></div><div class="simplebar-placeholder" style="width: auto; height: 592px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: hidden;"><div class="simplebar-scrollbar" style="height: 0px; display: none; transform: translate3d(0px, 0px, 0px);"></div></div></div><!-- .nk-sidebar-menu -->

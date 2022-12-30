@@ -31,6 +31,9 @@ class AuthServiceProvider extends ServiceProvider
         //
 
 
+
+
+
         Gate::define('seller_account_update',function(User $user){
           return  $user->role->name=='vendeur' && $user->owner_id !=NULL ;
         });
