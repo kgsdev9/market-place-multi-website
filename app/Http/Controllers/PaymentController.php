@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use Stripe;
+use Session;
 
-use Exception;
+use Stripe\Charge;
+use Stripe\Customer;
 use App\Models\Buyer;
 use App\Models\Order;
 use App\Mail\Invoicemail;
@@ -11,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
+
 
 
 
@@ -25,9 +29,9 @@ class PaymentController extends Controller
             'phone' =>['required', 'numeric'],
             'country'=>['required'],
             'city'=>['required'],
-            'g-recaptcha-response' => 'required|captcha',
-            'captcha' => 'Erreur CAPTCHA! réessayez plus tard ou contactez l\'administrateur du site'
         ])->validate();
+
+
         $sesion = session('cart');
         $sum_quantity = 0 ;
         $total_cart=0;
@@ -38,10 +42,33 @@ class PaymentController extends Controller
             $total_cart = $total_cart + $s['price']*$s['quantity'];
          };
 
-        $user = Auth()->user();
-        $stripeCharge = $user->charge(
-            $total_cart*100, $request->payment_method
-        );
+         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+         $customer = Customer::create(array(
+            "address" => [
+                "line1" => $request->input('adresse_delivry'),
+                "city" => $request->input('city'),
+                "country" => $request->input('country'),
+            ],
+            "email" =>  $request->input('email') ,
+            "name" => $request->input('fullname'),
+            "source" => $request->stripeToken
+        ));
+
+        Charge::create ([
+            "amount" => $total_cart * 100,
+            "currency" => "EUR",
+            "customer" => $customer->id,
+            "description" => "VTP PAIEMENT",
+            "shipping" => [
+                "name" =>$request->input('fullname'),
+                "address" => [
+                    "line1" =>  $request->input('adresse_delivry'),
+                    "city" => $request->input('city'),
+                    "country" => $request->input('country'),
+                ],
+            ]
+    ]);
+
         $code = "VTP".rand(0,432154798);
         $order =  new Order();
         $order->fullname = $request->input('fullname');
@@ -66,7 +93,7 @@ class PaymentController extends Controller
         Mail::to($order->email)->send(new Invoicemail($order));
         session()->forget('cart');
         return redirect()->route('success.payment');
-      
+
     }
 
     public function createStripe() {
