@@ -47,7 +47,7 @@
                                             <sup>1876</sup>
                                         </p>
 
-                                       <a href="{{route('stripeforms')}}" class="text-dark">PROCEDER AU PAIMENT</a>
+                                       <a href="{{URL::SignedRoute('stripeforms')}}" class="text-dark">PROCEDER AU PAIMENT</a>
                                     </div>
                                 </div>
 
